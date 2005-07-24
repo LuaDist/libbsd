@@ -1,34 +1,62 @@
+#
+# libbsd
+#
+# $Id$
+#
 
-LIB_FILES = arc4random.c  fgetln.c  inet_net_pton.c  md5c.c \
-  strlcat.c  strlcpy.c
+LIB_SRCS = arc4random.c fgetln.c inet_net_pton.c strlcat.c strlcpy.c
+# Disabled until being fixed
+#LIB_SRCS += md5c.c
 
-# All source files have associated object files
-LIBOFILES		= $(LIB_FILES:%.c=%.o)       
+LIB_INCLUDES = bsd.h
 
-CFLAGS = -include bsd.h -D_GNU_SOURCE
+LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
+LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
 
-# all is the default rule
-all	: libbsd.a \
-	  libbsd.so.1
+LIB_NAME = libbsd
+LIB_VERSION_MAJOR = 0
+LIB_VERSION_MINOR = 0
 
-insstall :
-	  mkdir -p $(DESTDIR)/usr/lib/
-	  mkdir -p $(DESTDIR)/usr/include/
-	  install -m644 libbsd.a $(DESTDIR)/usr/lib/
-	  install -m644 libbsd.so.1 $(DESTDIR)/usr/lib/
-	  install -m644 bsd.h $(DESTDIR)/usr/include/
-	  cd $(DESTDIR)/usr/lib/ ; ln -s libbsd.so.1 libbsd.so 
- 
-clean	:
-	rm -f *.o
-	rm -f *.a
-	rm -f *.so.1
+LIB_STATIC = $(LIB_NAME).a
 
-# remove the old tapestry library and remake the new one
-libbsd.a:	$(LIBOFILES)
-	rm -f $@
-	ar cq $@ $(LIBOFILES)
+LIB_SHARED_SO = $(LIB_NAME).so
+LIB_SONAME = $(LIB_SHARED_SO).$(LIB_VERSION_MAJOR)
+LIB_SHARED = $(LIB_SONAME).$(LIB_VERSION_MINOR)
 
-libbsd.so.1:	$(LIBOFILES)
-	rm -f $@
-	ld -G -o $@ $(LIBOFILES)
+MK_CFLAGS = -include bsd.h -D_GNU_SOURCE
+
+libs: $(LIB_STATIC) $(LIB_SHARED_SO)
+
+%.lo: %.c
+	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -DPIC -fPIC -c $<
+
+%.o: %.c
+	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -c $<
+
+$(LIB_STATIC): $(LIB_STATIC_OBJS)
+	ar rcs $@ $^
+
+$(LIB_SHARED_SO): $(LIB_SONAME)
+	ln -fs $^ $@
+
+$(LIB_SONAME): $(LIB_SHARED)
+	ln -fs $^ $@
+
+$(LIB_SHARED): $(LIB_SHARED_OBJS)
+	gcc -shared -Wl,-soname -Wl,$(LIB_SONAME) -o $@ $^
+
+install: libs
+	mkdir -p $(DESTDIR)/usr/lib/
+	mkdir -p $(DESTDIR)/usr/include/bsd/
+	install -m644 $(LIB_STATIC) $(DESTDIR)/usr/lib/
+	install -m644 $(LIB_SONAME) $(DESTDIR)/usr/lib/
+	install -m644 $(LIB_SHARED) $(DESTDIR)/usr/lib/
+	install -m644 $(LIB_SHARED_SO) $(DESTDIR)/usr/lib/
+	install -m644 $(LIB_INCLUDES) $(DESTDIR)/usr/include/bsd/
+
+clean:
+	rm -f $(LIB_STATIC_OBJS)
+	rm -f $(LIB_STATIC)
+	rm -f $(LIB_SHARED_OBJS)
+	rm -f $(LIB_SHARED) $(LIB_SONAME) $(LIB_SHARED_SO)
+
