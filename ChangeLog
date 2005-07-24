@@ -1,0 +1,5 @@
+2005-07-25  Guillem Jover  <guillem@debian.org>
+
+	* Versions: New file.
+	* Makefile: Add versioned symbols support.
+

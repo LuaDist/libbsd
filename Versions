@@ -1,0 +1,10 @@
+LIBBSD_0.0 {
+  global:
+    arc4random;
+    fgetln;
+    inet_net_pton;
+    strlcpy;
+    strlcat;
+  local:
+    *;
+};

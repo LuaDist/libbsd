@@ -43,7 +43,10 @@ $(LIB_SONAME): $(LIB_SHARED)
 	ln -fs $^ $@
 
 $(LIB_SHARED): $(LIB_SHARED_OBJS)
-	gcc -shared -Wl,-soname -Wl,$(LIB_SONAME) -o $@ $^
+	gcc -shared \
+	  -Wl,-soname -Wl,$(LIB_SONAME) \
+	  -Wl,--version-script=Versions \
+	  -o $@ $^
 
 install: libs
 	mkdir -p $(DESTDIR)/usr/lib/
