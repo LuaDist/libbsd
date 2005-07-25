@@ -1,5 +1,9 @@
 2005-07-26  Guillem Jover  <guillem@debian.org>
 
+	* Makefile (LIB_INCLUDES): Add "md5.h".
+
+2005-07-26  Guillem Jover  <guillem@debian.org>
+
 	* Versions (LIBBSD_0.0): Add MD5Init, MD5Update, MD5Pad and
 	MD5Final.
 
