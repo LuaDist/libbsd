@@ -1,3 +1,8 @@
+2005-07-26  Guillem Jover  <guillem@debian.org>
+
+	* Versions (LIBBSD_0.0): Add MD5Init, MD5Update, MD5Pad and
+	MD5Final.
+
 2005-07-26  Hector Garcia  <hector@debian.org>
 
 	* Makefile (LIB_SRCS): Add "md5c.c".

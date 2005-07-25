@@ -5,6 +5,10 @@ LIBBSD_0.0 {
     inet_net_pton;
     strlcpy;
     strlcat;
+    MD5Init;
+    MD5Update;
+    MD5Pad;
+    MD5Final;
   local:
     *;
 };
