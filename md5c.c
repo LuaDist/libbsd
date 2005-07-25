@@ -39,7 +39,7 @@ __FBSDID("$FreeBSD: src/lib/libmd/md5c.c,v 1.16 2003/06/05 13:17:32 markm Exp $"
 
 //#include <machine/endian.h>
 //#include <sys/endian.h>
-//#include <sys/md5.h>
+#include "md5.h"
 
 static void MD5Transform(u_int32_t [4], const unsigned char [64]);
 
