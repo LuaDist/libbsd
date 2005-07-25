@@ -1,5 +1,10 @@
 2005-07-25  Guillem Jover  <guillem@debian.org>
 
+	* fgetln.c (fgetln): Reindent, remove commented code and translate
+	variable names to english.
+
+2005-07-25  Guillem Jover  <guillem@debian.org>
+
 	* Versions: New file.
 	* Makefile: Add versioned symbols support.
 
