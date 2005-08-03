@@ -1,3 +1,12 @@
+2005-08-03  Hector Garcia  <hector@debian.org>
+
+	* Makefile: Fixed to place soft links instead in soname and shared_so
+	instead of copying files.
+	* debian/rules: Added --sourcedir=debian/tmp to dh_install so it works
+	properly.
+	* md5.h: Commented out all the functions not available on md5c.c
+	* debian/libbsd-dev: Changed usr/include/bsd/ to usr/include
+	
 2005-07-26  Guillem Jover  <guillem@debian.org>
 
 	* Makefile (LIB_INCLUDES): Add "md5.h".

@@ -50,10 +50,12 @@ install: libs
 	mkdir -p $(DESTDIR)/usr/lib/
 	mkdir -p $(DESTDIR)/usr/include/bsd/
 	install -m644 $(LIB_STATIC) $(DESTDIR)/usr/lib/
-	install -m644 $(LIB_SONAME) $(DESTDIR)/usr/lib/
+	#install -m644 $(LIB_SONAME) $(DESTDIR)/usr/lib/
 	install -m644 $(LIB_SHARED) $(DESTDIR)/usr/lib/
-	install -m644 $(LIB_SHARED_SO) $(DESTDIR)/usr/lib/
+	#install -m644 $(LIB_SHARED_SO) $(DESTDIR)/usr/lib/
 	install -m644 $(LIB_INCLUDES) $(DESTDIR)/usr/include/bsd/
+	cd $(DESTDIR)/usr/lib/ ; ln -fs $(LIB_SHARED) $(LIB_SHARED_SO)
+	cd $(DESTDIR)/usr/lib/ ; ln -fs $(LIB_SHARED) $(LIB_SONAME)
 
 clean:
 	rm -f $(LIB_STATIC_OBJS)
