@@ -1,3 +1,6 @@
+2005-08-05  Hector Garcia  <hector@debian.org>
+	* debian/control: Added proper description for packages
+
 2005-08-03  Hector Garcia  <hector@debian.org>
 
 	* Makefile: Fixed to place soft links instead in soname and shared_so
