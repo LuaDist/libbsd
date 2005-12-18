@@ -1,3 +1,9 @@
+2005-12-18  Aurelien Jarno <aurel32@debian.org>
+       
+	* fmtcheck.c: new
+	* include/string.h: added fmtcheck
+	* Versions: added fmtcheck
+
 2005-11-01  Guillem Jover  <guillem@debian.org>
 
 	* ip_icmp.h: Move to ...

@@ -4,7 +4,7 @@
 # $Id$
 #
 
-LIB_SRCS = arc4random.c fgetln.c inet_net_pton.c strlcat.c strlcpy.c md5c.c
+LIB_SRCS = arc4random.c fgetln.c inet_net_pton.c strlcat.c strlcpy.c md5c.c fmtcheck.c
 
 LIB_INCLUDES = bsd.h md5.h
 
