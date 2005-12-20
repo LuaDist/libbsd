@@ -2,6 +2,7 @@ LIBBSD_0.0 {
   global:
     arc4random;
     fgetln;
+    fgetwln;
     fmtcheck;
     inet_net_pton;
     strlcpy;

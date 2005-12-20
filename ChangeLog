@@ -1,7 +1,8 @@
-2005-12-18  Aurelien Jarno <aurel32@debian.org>
+2005-12-19  Aurelien Jarno <aurel32@debian.org>
        
+        * Added manpages
 	* fmtcheck.c: new
-	* include/string.h: added fmtcheck
+	* include/stdlib.h: added fmtcheck
 	* Versions: added fmtcheck
 
 2005-11-01  Guillem Jover  <guillem@debian.org>

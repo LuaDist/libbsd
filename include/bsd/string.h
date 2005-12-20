@@ -7,6 +7,6 @@
 size_t strlcpy(char *dst, const char *src, size_t siz);
 size_t strlcat(char *dst, const char *src, size_t siz);
 char *fgetln(FILE *fp, size_t *lenp);
-const char *fmtcheck(const char *, const char *);
+wchar_t *fgetwln(FILE * __restrict fp, size_t *lenp);
 
 #endif
