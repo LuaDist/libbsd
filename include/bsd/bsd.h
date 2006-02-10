@@ -8,6 +8,7 @@
 #define setproctitle(fmt, args...)
 
 #define __dead2
+#define __unused
 #define __printflike(x,y)
 #define __FBSDID(x)
 
