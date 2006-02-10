@@ -1,6 +1,14 @@
+2006-02-10  Robert Millan  <rmh@aybabtu.com>
+       
+	Add errc, warnc, verrc and vwarnc.
+	* err.c: New.
+	* include/bsd/err.h: New.
+	* Versions: Add them.
+	* Makefile: Add err.c and include/bsd/err.h.
+
 2005-12-19  Aurelien Jarno <aurel32@debian.org>
        
-        * Added manpages
+	* Added manpages
 	* fmtcheck.c: new
 	* include/stdlib.h: added fmtcheck
 	* Versions: added fmtcheck
