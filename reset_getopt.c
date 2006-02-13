@@ -12,9 +12,9 @@
 #endif
 
 #include <unistd.h>
+#include <sys/param.h> /* BSD */
 
-/* FIXME */
-#ifndef __GLIBC__
+#ifdef BSD
 # define HAVE_OPTRESET 1
 #endif
 
