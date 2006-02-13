@@ -1,3 +1,11 @@
+2006-02-13  Robert Millan  <rmh@aybabtu.com>
+       
+	Add bsd_getopt.
+	* bsd_getopt.c: New.
+	* include/bsd/getopt.h: New.
+	* Versions: Add bsd_getopt and optreset.
+	* Makefile: Add bsd_getopt.c and include/bsd/getopt.h.
+
 2006-02-10  Robert Millan  <rmh@aybabtu.com>
        
 	Add errc, warnc, verrc and vwarnc.
