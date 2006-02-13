@@ -30,8 +30,8 @@
  * $FreeBSD: src/sys/sys/queue.h,v 1.58 2004/04/07 04:19:49 imp Exp $
  */
 
-#ifndef _SYS_QUEUE_H_
-#define	_SYS_QUEUE_H_
+#ifndef _SYS_QUEUE_H
+#define	_SYS_QUEUE_H
 
 #include <sys/cdefs.h>
 
@@ -550,4 +550,4 @@ void	remque(void *a);
 
 #endif /* _KERNEL */
 
-#endif /* !_SYS_QUEUE_H_ */
+#endif /* !_SYS_QUEUE_H */
