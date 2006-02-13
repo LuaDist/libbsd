@@ -6,8 +6,8 @@ LIBBSD_0.0 {
     fgetwln;
     fmtcheck;
     inet_net_pton;
-    reset_getopt;
-    strlcpy; strlcat;
+    strlcpy;
+    strlcat;
     MD5Init;
     MD5Update;
     MD5Pad;

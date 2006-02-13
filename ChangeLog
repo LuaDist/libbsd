@@ -1,11 +1,3 @@
-2006-02-13  Robert Millan  <rmh@aybabtu.com>
-       
-	Add reset_getopt (borrowed from e2fsprogs).
-	* reset_getopt.c: New.
-	* Versions: Add reset_getopt.
-	* Makefile: Add reset_getopt.c.
-	* debian/copyright: Add license (GPL).
-
 2006-02-10  Robert Millan  <rmh@aybabtu.com>
        
 	Add errc, warnc, verrc and vwarnc.
