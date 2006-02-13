@@ -4,7 +4,7 @@
 # $Id$
 #
 
-LIB_SRCS = arc4random.c err.c fgetln.c inet_net_pton.c strlcat.c strlcpy.c md5c.c fmtcheck.c
+LIB_SRCS = arc4random.c err.c fgetln.c inet_net_pton.c reset_getopt.c  strlcat.c strlcpy.c md5c.c fmtcheck.c
 
 LIB_INCLUDES = include/bsd/err.h include/bsd/ip_icmp.h include/bsd/random.h include/bsd/queue.h include/bsd/md5.h include/bsd/string.h include/bsd/bsd.h include/bsd/stdlib.h
 
