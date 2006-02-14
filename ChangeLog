@@ -1,5 +1,10 @@
 2006-02-14  Guillem Jover  <guillem@debian.org>
 
+	* include/bsd/stdlib.h: Remove <sys/types.h> and <stdio.h>.
+	* include/bsd/getopt.h: Protect header from multiple inclusion.
+
+2006-02-14  Guillem Jover  <guillem@debian.org>
+
 	* include/bsd/bsd.h: Remove commented out macros.
 
 2006-02-14  Guillem Jover  <guillem@debian.org>
