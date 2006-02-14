@@ -9,7 +9,7 @@ LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c \
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
 
 LIB_INCLUDES := err.h getopt.h ip_icmp.h random.h queue.h md5.h string.h \
-		bsd.h stdlib.h
+		bsd.h cdefs.h stdlib.h
 LIB_INCLUDES := $(patsubst %,include/bsd/%,$(LIB_INCLUDES))
 
 LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3

@@ -2,22 +2,10 @@
 #define LIBBSD_H
 
 /*
- * Generic definitions.
- */
-
-#define setproctitle(fmt, args...)
-
-#define __dead2
-#define __unused
-#define __printflike(x,y)
-#define __FBSDID(x)
-
-#include <sys/cdefs.h>
-
-/*
  * Include all bsd compat headers.
  */
 
+#include <bsd/cdefs.h>
 #include <bsd/random.h>
 #include <bsd/string.h>
 #include <bsd/queue.h>

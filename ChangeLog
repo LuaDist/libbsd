@@ -1,5 +1,13 @@
 2006-02-14  Guillem Jover  <guillem@debian.org>
 
+	* include/bsd/bsd.h (setproctitle, __dead2, __unused, __printflike)
+	(__FBSDID): Moved to ...
+	* include/bsd/cdefs.h: ... here.
+	(__unused, __printflike) [__GNUC__]: Use proper __attribute__.
+	* Makefile (LIB_INCLUDES): Add 'cdefs.h'.
+
+2006-02-14  Guillem Jover  <guillem@debian.org>
+
 	* arc4random.c: Move to ...
 	* src/arc4random.c: ... here.
 	* bsd_getopt.c: Move to ...
