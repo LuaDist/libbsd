@@ -4,8 +4,9 @@
 # $Id$
 #
 
-LIB_SRCS = arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c \
-	   strlcat.c strlcpy.c md5c.c fmtcheck.c
+LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c \
+	    strlcat.c strlcpy.c md5c.c fmtcheck.c
+LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
 
 LIB_INCLUDES := err.h getopt.h ip_icmp.h random.h queue.h md5.h string.h \
 		bsd.h stdlib.h
