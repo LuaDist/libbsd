@@ -1,25 +1,28 @@
 2006-02-13  Robert Millan  <rmh@aybabtu.com>
-       
-	Add bsd_getopt.
-	* bsd_getopt.c: New.
-	* include/bsd/getopt.h: New.
-	* Versions: Add bsd_getopt and optreset.
-	* Makefile: Add bsd_getopt.c and include/bsd/getopt.h.
+
+	* bsd_getopt.c: New file.
+	* include/bsd/getopt.h: Likewise.
+	* Makefile (LIB_SRCS): Add 'bsd_getopt.c'.
+	(LIB_INCLUDES): Add 'include/bsd/getopt.h'.
+	* Versions: Added bsd_getopt and optreset.
 
 2006-02-10  Robert Millan  <rmh@aybabtu.com>
-       
-	Add errc, warnc, verrc and vwarnc.
-	* err.c: New.
-	* include/bsd/err.h: New.
-	* Versions: Add them.
-	* Makefile: Add err.c and include/bsd/err.h.
+
+	* err.c: New file.
+	* include/bsd/err.h: Likewise.
+	* Makefile (LIB_SRCS): Add 'err.c'.
+	(LIB_INCLUDES): Add 'include/bsd/err.h'.
+	* Versions: Added errc, warnc, verrc and vwarn.
 
 2005-12-19  Aurelien Jarno <aurel32@debian.org>
-       
-	* Added manpages
-	* fmtcheck.c: new
-	* include/stdlib.h: added fmtcheck
-	* Versions: added fmtcheck
+
+	* man/arc4random.3: New file.
+	* man/fgetln.3: Likewise.
+	* man/fmtcheck.3: Likewise.
+	* man/strlcpy.3: Likewise.
+	* fmtcheck.c:: Likewise.
+	* include/stdlib.h: Added fmtcheck declaration.
+	* Versions: Added fmtcheck.
 
 2005-11-01  Guillem Jover  <guillem@debian.org>
 
@@ -37,14 +40,14 @@
 
 2005-08-03  Hector Garcia  <hector@debian.org>
 
-	* Makefile: Fixed to place soft links instead in soname and shared_so
-	instead of copying files.
+	* Makefile: Fixed to place soft links instead in soname, and
+	shared_so instead of copying files.
 	* md5.h (MD5End, MD5File, MD5FileChunk, MD5Data): Commented out
-	functions not available on md5c.c
+	functions not available on 'md5c.c'.
 
 2005-07-26  Guillem Jover  <guillem@debian.org>
 
-	* Makefile (LIB_INCLUDES): Add "md5.h".
+	* Makefile (LIB_INCLUDES): Add 'md5.h'.
 
 2005-07-26  Guillem Jover  <guillem@debian.org>
 
@@ -53,9 +56,9 @@
 
 2005-07-26  Hector Garcia  <hector@debian.org>
 
-	* Makefile (LIB_SRCS): Add "md5c.c".
-	* md5c.c: Changed include to "md5.h".
-	* md5.h: Replaced with the system header sys/md5.h.
+	* Makefile (LIB_SRCS): Add 'md5c.c'.
+	* md5c.c: Changed include to 'md5.h'.
+	* md5.h: Replaced with the system header 'sys/md5.h'.
 
 2005-07-25  Guillem Jover  <guillem@debian.org>
 
