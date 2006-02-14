@@ -40,10 +40,6 @@
 	(LIB_INCLUDES): List only the files, automatically prefix the dir.
 	(LIB_MANS): Likewise.
 
-2006-02-14  Guillem Jover  <guillem@debian.org>
-
-	* Versions: Remove optreset.
-
 2006-02-13  Robert Millan  <rmh@aybabtu.com>
 
 	* bsd_getopt.c: New file.
