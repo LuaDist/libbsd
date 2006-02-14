@@ -82,18 +82,4 @@ __bswap64(__uint64_t _x)
             ((_x << 40) & ((__uint64_t)0xff << 48)) | ((_x << 56)));
 }
 
-/*
- * Directly from FreeBSD stdio.h
- */
-
-//#define    __SMOD  0x2000          /* true => fgetln modified _p text */
-//#define    __SLBF  0x0001          /* line buffered */
-//#define    __SWR   0x0008          /* OK to write */
-//#define    __SEOF  0x0020          /* found EOF */
-//#define    __SRD   0x0004          /* OK to read */
-//#define    __SRW   0x0010          /* open for reading & writing */
-//#define    __SERR  0x0040          /* found error */
-//#define    __SNBF  0x0002          /* unbuffered */
-//#define    __SIGN  0x8000          /* ignore this file in _fwalk */
-
 #endif

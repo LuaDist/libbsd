@@ -1,5 +1,9 @@
 2006-02-14  Guillem Jover  <guillem@debian.org>
 
+	* include/bsd/bsd.h: Remove commented out macros.
+
+2006-02-14  Guillem Jover  <guillem@debian.org>
+
 	* include/bsd/bsd.h (setproctitle, __dead2, __unused, __printflike)
 	(__FBSDID): Moved to ...
 	* include/bsd/cdefs.h: ... here.
