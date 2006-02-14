@@ -4,11 +4,15 @@
 # $Id$
 #
 
-LIB_SRCS = arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c strlcat.c strlcpy.c md5c.c fmtcheck.c
+LIB_SRCS = arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c \
+	   strlcat.c strlcpy.c md5c.c fmtcheck.c
 
-LIB_INCLUDES = include/bsd/err.h include/bsd/getopt.h include/bsd/ip_icmp.h include/bsd/random.h include/bsd/queue.h include/bsd/md5.h include/bsd/string.h include/bsd/bsd.h include/bsd/stdlib.h
+LIB_INCLUDES := err.h getopt.h ip_icmp.h random.h queue.h md5.h string.h \
+	       bsd.h stdlib.h
+LIB_INCLUDES := $(patsubst %,include/bsd/,$(LIB_INCLUDES))
 
-LIB_MANS = man/arc4random.3 man/strlcpy.3 man/fgetln.3 man/fmtcheck.3
+LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3
+LIB_MANS := $(patsubst %,man/,$(LIB_MANS))
 
 LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
