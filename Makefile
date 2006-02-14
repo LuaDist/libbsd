@@ -8,11 +8,11 @@ LIB_SRCS = arc4random.c bsd_getopt.c err.c fgetln.c inet_net_pton.c \
 	   strlcat.c strlcpy.c md5c.c fmtcheck.c
 
 LIB_INCLUDES := err.h getopt.h ip_icmp.h random.h queue.h md5.h string.h \
-	       bsd.h stdlib.h
-LIB_INCLUDES := $(patsubst %,include/bsd/,$(LIB_INCLUDES))
+		bsd.h stdlib.h
+LIB_INCLUDES := $(patsubst %,include/bsd/%,$(LIB_INCLUDES))
 
 LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3
-LIB_MANS := $(patsubst %,man/,$(LIB_MANS))
+LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
