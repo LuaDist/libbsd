@@ -11,12 +11,16 @@
 # define __dead2
 #endif
 
+/* Linux headers define a struct with a member names __unused.
+ * Disable for now. */
+#if 0
 #ifndef __unused
 # ifdef __GNUC__
 #  define __unused __attribute__((unused))
 # else
 #  define __unused
 # endif
+#endif
 #endif
 
 #ifndef __printflike

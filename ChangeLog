@@ -1,3 +1,8 @@
+2006-02-15  Guillem Jover  <guillem@debian.org>
+
+	* include/bsd/cdefs.h: Disable __unused, it conflicts with a struct
+	member in a Linux header.
+
 2006-02-14  Guillem Jover  <guillem@debian.org>
 
 	* include/bsd/stdlib.h: Remove <sys/types.h> and <stdio.h>.
