@@ -1,3 +1,10 @@
+2006-03-17  Robert Millan  <rmh@aybabtu.com>
+
+	* src/progname.c: New file.
+	* include/bsd/stdlib.h: Add {get,set}progname declarations.
+	* Makefile (LIB_SRCS): Add 'progname.c'.
+	* Versions: Add getprogname and setprogname.
+
 2006-02-15  Guillem Jover  <guillem@debian.org>
 
 	* include/bsd/cdefs.h: Disable __unused, it conflicts with a struct
