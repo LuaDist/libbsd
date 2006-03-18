@@ -21,7 +21,7 @@
 
 #include <bsd/stdlib.h>
 
-static char *__progname;
+static char *__progname = NULL;
 
 char *
 getprogname ();
