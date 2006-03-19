@@ -10,7 +10,6 @@ LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
 
 LIB_INCLUDES := bsd/err.h bsd/getopt.h bsd/ip_icmp.h bsd/random.h bsd/queue.h bsd/md5.h bsd/string.h \
 		bsd/bsd.h bsd/cdefs.h bsd/stdlib.h vis.h
-LIB_INCLUDES := $(patsubst %,include/%,$(LIB_INCLUDES))
 
 LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
@@ -59,7 +58,7 @@ install: libs
 	mkdir -p $(DESTDIR)/usr/share/man/man3
 	install -m644 $(LIB_STATIC) $(DESTDIR)/usr/lib/
 	install -m644 $(LIB_SHARED) $(DESTDIR)/usr/lib/
-	install -m644 $(LIB_INCLUDES) $(DESTDIR)/usr/include/bsd/
+	for i in $(LIB_INCLUDES) ; do install -m644 include/$$i $(DESTDIR)/usr/include/$$i ; done
 	install -m644 $(LIB_MANS) $(DESTDIR)/usr/share/man/man3
 	cd $(DESTDIR)/usr/lib/ ; ln -fs $(LIB_SHARED) $(LIB_SHARED_SO)
 	cd $(DESTDIR)/usr/lib/ ; ln -fs $(LIB_SHARED) $(LIB_SONAME)
