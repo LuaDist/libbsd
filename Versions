@@ -10,6 +10,8 @@ LIBBSD_0.0 {
     getprogname; setprogname;
     strlcpy;
     strlcat;
+    vis; strvis; strvisx;
+    unvis; strunvis; strunvisx;
     MD5Init;
     MD5Update;
     MD5Pad;

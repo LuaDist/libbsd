@@ -1,3 +1,11 @@
+2006-03-19  Robert Millan  <rmh@aybabtu.com>
+
+	* src/vis.c: New file.
+	* src/unvis.c: Ditto.
+	* include/vis.h: Add vis/unvis declarations.
+	* Makefile (LIB_SRCS): Add vis.c/unvis.c.
+	* Versions: Add vis/unvis functions.
+
 2006-03-17  Robert Millan  <rmh@aybabtu.com>
 
 	* src/progname.c: New file.
