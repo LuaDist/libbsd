@@ -211,4 +211,4 @@ inet_net_pton_ipv4(src, dst, size)
  * and fail to include <arpa/inet.h>.
  */
 #undef inet_net_pton
-//__weak_reference(__inet_net_pton, inet_net_pton);
+/* __weak_reference(__inet_net_pton, inet_net_pton); */
