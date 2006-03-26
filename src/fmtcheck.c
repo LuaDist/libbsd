@@ -41,7 +41,7 @@ __FBSDID("$FreeBSD: /repoman/r/ncvs/src/lib/libc/gen/fmtcheck.c,v 1.8 2005/03/21
 #include <string.h>
 #include <ctype.h>
 
-__weak_reference(__fmtcheck, fmtcheck);
+/* __weak_reference(__fmtcheck, fmtcheck); */
 
 enum __e_fmtcheck_types {
 	FMTCHECK_START,
@@ -245,7 +245,7 @@ get_next_format(const char **pf, EFT eft)
 }
 
 __const char *
-__fmtcheck(const char *f1, const char *f2)
+fmtcheck(const char *f1, const char *f2)
 {
 	const char	*f1p, *f2p;
 	EFT		f1t, f2t;
