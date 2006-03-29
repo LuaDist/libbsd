@@ -1,3 +1,10 @@
+2006-03-29  Robert Millan  <rmh@aybabtu.com>
+
+	* src/heapsort.c: New file.
+	* include/bsd/stdlib.h: Add heapsort declaration.
+	* Makefile (LIB_SRCS): Add heapsort.c.
+	* Versions: Add heapsort.
+
 2006-03-19  Robert Millan  <rmh@aybabtu.com>
 
 	* src/vis.c: New file.

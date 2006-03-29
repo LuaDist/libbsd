@@ -6,6 +6,7 @@ LIBBSD_0.0 {
     fgetln;
     fgetwln;
     fmtcheck;
+    heapsort;
     inet_net_pton;
     getprogname; setprogname;
     strlcpy;
