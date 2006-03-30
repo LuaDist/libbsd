@@ -19,9 +19,10 @@
   Rejected in glibc (http://sourceware.org/ml/libc-alpha/2006-03/msg00125.html)
 */
 
-#include <bsd/stdlib.h>
+#include <bsd/stdlib.h>		/* progname, strdup */
+#include <string.h>		/* free */
 
-static char *__progname = NULL;
+char *__progname = NULL;
 
 char *
 getprogname ()
@@ -32,5 +33,10 @@ getprogname ()
 void
 setprogname (char *new)
 {
-  __progname = new;
+  /* For some reason, accessing the argv vector directly may cause SIGSEV.  Let's copy it to avoid trouble. */
+
+  if (__progname != NULL)
+    free (__progname);
+
+  __progname = strdup (new);
 }
