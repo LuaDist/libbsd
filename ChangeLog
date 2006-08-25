@@ -1,3 +1,10 @@
+2006-08-25  Petr Salinger  <Petr.Salinger@seznam.cz>
+
+	* src/humanize_number.c: New file.
+	* include/libutil.h: New file with humanize_number declarations.
+	* Makefile (LIB_SRCS): Add humanize_number.c.
+	* Versions: Add humanize_number.
+
 2006-03-29  Robert Millan  <rmh@aybabtu.com>
 
 	* src/heapsort.c: New file.
