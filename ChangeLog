@@ -1,3 +1,10 @@
+2006-11-08  Aurelien Jarno  <aurelien@aurel32.net>
+
+	* src/link_addr.c: New file.
+	* include/bsd/if_dl.h: Add link_addr.c declarations.
+	* Makefile (LIB_SRCS): Add link_addr.c.
+	* Versions: add link_addr and link_ntoa
+
 2006-08-25  Petr Salinger  <Petr.Salinger@seznam.cz>
 
 	* src/humanize_number.c: New file.
