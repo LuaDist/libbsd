@@ -274,7 +274,7 @@ struct {								\
 #define	STAILQ_LAST(head, type, field)					\
 	(STAILQ_EMPTY((head)) ?						\
 		NULL :							\
-	        ((struct type *)					\
+	        ((struct type *)(void *)				\
 		((char *)((head)->stqh_last) - __offsetof(struct type, field))))
 
 #define	STAILQ_NEXT(elm, field)	((elm)->field.stqe_next)
@@ -403,7 +403,7 @@ struct {								\
 		(head2)->tqh_first->field.tqe_prev = (head1)->tqh_last;	\
 		(head1)->tqh_last = (head2)->tqh_last;			\
 		TAILQ_INIT((head2));					\
-		QMD_TRACE_HEAD(head);					\
+		QMD_TRACE_HEAD(head1);					\
 		QMD_TRACE_HEAD(head2);					\
 	}								\
 } while (0)
