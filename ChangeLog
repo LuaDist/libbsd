@@ -6,6 +6,7 @@
 	* src/unvis.c: Likewise.
 	* src/heapsort.c: Likewise.
 	* src/linkaddr.c: Likewise.
+	* man/fgetln.3: Likewise.
 
 2007-12-18  Petr Salinger  <Petr.Salinger@seznam.cz>
 
