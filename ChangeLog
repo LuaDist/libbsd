@@ -1,3 +1,12 @@
+2008-03-16  Guillem Jover  <guillem@debian.org>
+
+	* include/vis.h: Remove UC Berkeley advertising clause, as per
+	<ftp://ftp.cs.berkeley.edu/pub/4bsd/README.Impt.License.Change>.
+	* src/vis.c: Likewise.
+	* src/unvis.c: Likewise.
+	* src/heapsort.c: Likewise.
+	* src/linkaddr.c: Likewise.
+
 2007-12-18  Petr Salinger  <Petr.Salinger@seznam.cz>
 
 	* include/bsd/queue.h: sync with current glibc variant on GNU/kFreeBSD
