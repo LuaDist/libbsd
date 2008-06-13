@@ -1,4 +1,4 @@
-/*	$NetBSD: humanize_number.c,v 1.11 2006/06/08 21:08:56 simonb Exp $	*/
+/*	$NetBSD: humanize_number.c,v 1.14 2008/04/28 20:22:59 martin Exp $	*/
 
 /*
  * Copyright (c) 1997, 1998, 1999, 2002 The NetBSD Foundation, Inc.
@@ -109,7 +109,12 @@ humanize_number(char *buf, size_t len, int64_t bytes,
 		for (max = 100, i = len - baselen; i-- > 0;)
 			max *= 10;
 
-		for (i = 0; bytes >= max && i < maxscale; i++)
+		/*
+		 * Divide the number until it fits the given column.
+		 * If there will be an overflow by the rounding below,
+		 * divide once more.
+		 */
+		for (i = 0; bytes >= max - 50 && i < maxscale; i++)
 			bytes /= divisor;
 
 		if (scale & HN_GETSCALE)
