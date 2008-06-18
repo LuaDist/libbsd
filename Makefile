@@ -6,13 +6,18 @@
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    linkaddr.c humanize_number.c inet_net_pton.c \
-	    strlcat.c strlcpy.c md5c.c fmtcheck.c progname.c vis.c unvis.c
+	    hash/md5.c hash/md5hl.c \
+	    strlcat.c strlcpy.c fmtcheck.c progname.c vis.c unvis.c
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
+
+LIB_GEN_SRCS := \
+	man/md5.3 \
+	src/hash/md5hl.c
 
 LIB_INCLUDES := bsd/err.h bsd/getopt.h bsd/ip_icmp.h bsd/random.h bsd/queue.h bsd/md5.h bsd/string.h \
 		bsd/bsd.h bsd/cdefs.h bsd/stdlib.h bsd/if_dl.h vis.h libutil.h
 
-LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3
+LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3 md5.3
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
@@ -32,11 +37,19 @@ MK_CFLAGS = -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE
 
 libs: $(LIB_STATIC) $(LIB_SHARED_SO)
 
+man: $(LIB_MANS)
+
 %.lo: %.c
 	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -DPIC -fPIC -c $<
 
 %.o: %.c
 	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -c $<
+
+man/md5.3:  man/mdX.3
+	sed -e 's/mdX/md5/g' -e 's/mdY/md4/g' -e 's/MDX/MD5/g' $< > $@
+
+src/hash/md5hl.c: src/hash/helper.c
+	sed -e 's:hashinc:bsd/md5.h:g' -e 's:HASH:MD5:g' $< > $@
 
 $(LIB_STATIC): $(LIB_STATIC_OBJS)
 	ar rcs $@ $^
@@ -53,7 +66,7 @@ $(LIB_SHARED): $(LIB_SHARED_OBJS)
 	  -Wl,--version-script=Versions \
 	  -o $@ $^
 
-install: libs
+install: libs man
 	mkdir -p $(DESTDIR)/usr/lib/ $(DESTDIR)/lib/
 	mkdir -p $(DESTDIR)/usr/include/bsd/
 	mkdir -p $(DESTDIR)/usr/share/man/man3
@@ -65,6 +78,7 @@ install: libs
 	ln -sf $(LIB_SHARED) $(DESTDIR)/lib/$(LIB_SONAME)
 
 clean:
+	rm -f $(LIB_GEN_SRCS)
 	rm -f $(LIB_STATIC_OBJS)
 	rm -f $(LIB_STATIC)
 	rm -f $(LIB_SHARED_OBJS)

@@ -19,6 +19,12 @@ LIBBSD_0.0 {
     MD5Update;
     MD5Pad;
     MD5Final;
+    MD5Transform;
+    MD5End;
+    MD5File;
+    MD5FileChunk;
+    MD5Data;
+
   local:
     *;
 };
