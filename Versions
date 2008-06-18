@@ -1,6 +1,8 @@
 LIBBSD_0.0 {
   global:
     arc4random;
+    arc4random_stir;
+    arc4random_addrandom;
     bsd_getopt; optreset;
     errc; warnc; verrc; vwarnc;
     fgetln;

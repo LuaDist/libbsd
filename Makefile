@@ -33,7 +33,7 @@ LIB_SHARED_SO = $(LIB_NAME).so
 LIB_SONAME = $(LIB_SHARED_SO).$(LIB_VERSION_MAJOR)
 LIB_SHARED = $(LIB_SONAME).$(LIB_VERSION_MINOR)
 
-MK_CFLAGS = -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE
+MK_CFLAGS = -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
 libs: $(LIB_STATIC) $(LIB_SHARED_SO)
 

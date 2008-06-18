@@ -31,6 +31,7 @@ __FBSDID("$FreeBSD: src/lib/libc/gen/arc4random.c,v 1.10 2004/03/24 14:44:57 gre
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <pthread.h>
 
 struct arc4_stream {
 	u_int8_t i;
@@ -39,8 +40,14 @@ struct arc4_stream {
 };
 
 #define	RANDOMDEV	"/dev/urandom"
+#ifdef __REENTRANT
+static pthread_mutex_t arc4random_mtx = PTHREAD_MUTEX_INITIALIZER;
+#define	THREAD_LOCK()	pthread_mutex_lock(&arc4random_mtx)
+#define	THREAD_UNLOCK()	pthread_mutex_unlock(&arc4random_mtx)
+#else
 #define	THREAD_LOCK()
 #define	THREAD_UNLOCK()
+#endif
 
 static struct arc4_stream rs;
 static int rs_initialized;
@@ -153,6 +160,27 @@ arc4_check_stir(void)
 		arc4_stir(&rs);
 		rs_stired = 1;
 	}
+}
+
+void
+arc4random_stir()
+{
+	THREAD_LOCK();
+	arc4_check_init();
+	arc4_stir(&rs);
+	THREAD_UNLOCK();
+}
+
+void
+arc4random_addrandom(dat, datlen)
+	u_char *dat;
+	int     datlen;
+{
+	THREAD_LOCK();
+	arc4_check_init();
+	arc4_check_stir();
+	arc4_addrandom(&rs, dat, datlen);
+	THREAD_UNLOCK();
 }
 
 u_int32_t

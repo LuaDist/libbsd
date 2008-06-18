@@ -30,6 +30,8 @@
 #include <sys/types.h>
 
 u_int32_t arc4random();
+void arc4random_stir();
+void arc4random_addrandom(u_char *dat, int datlen);
 
 #endif
 
