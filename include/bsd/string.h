@@ -28,6 +28,7 @@
 #define LIBBSD_STRING_H
 
 #include <sys/types.h>
+#include <stddef.h>
 #include <stdio.h>
 
 size_t strlcpy(char *dst, const char *src, size_t siz);
