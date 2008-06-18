@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libbsd
+Description: BSD compatibility library
+Version: 0.0
+URL: http://libbsd.freedesktop.org/
+Libs: -L${libdir} -lbsd
+Cflags: -I${includedir}

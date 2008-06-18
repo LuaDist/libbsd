@@ -70,10 +70,12 @@ install: libs man
 	mkdir -p $(DESTDIR)/usr/lib/ $(DESTDIR)/lib/
 	mkdir -p $(DESTDIR)/usr/include/bsd/
 	mkdir -p $(DESTDIR)/usr/share/man/man3
+	mkdir -p $(DESTDIR)/usr/lib/pkgconfig
 	install -m644 $(LIB_STATIC) $(DESTDIR)/usr/lib/
 	install -m644 $(LIB_SHARED) $(DESTDIR)/lib/
 	for i in $(LIB_INCLUDES) ; do install -m644 include/$$i $(DESTDIR)/usr/include/$$i ; done
 	install -m644 $(LIB_MANS) $(DESTDIR)/usr/share/man/man3
+	install -m644 $(LIB_NAME).pc $(DESTDIR)/usr/lib/pkgconfig
 	ln -sf /lib/$(LIB_SHARED) $(DESTDIR)/usr/lib/$(LIB_SHARED_SO)
 	ln -sf $(LIB_SHARED) $(DESTDIR)/lib/$(LIB_SONAME)
 
