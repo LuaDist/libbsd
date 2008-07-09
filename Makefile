@@ -2,6 +2,10 @@
 # libbsd
 #
 
+LIB_NAME = libbsd
+LIB_VERSION_MAJOR = 0
+LIB_VERSION_MINOR = 0
+
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
 	    hash/md5.c hash/md5hl.c \
@@ -20,10 +24,6 @@ LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
-
-LIB_NAME = libbsd
-LIB_VERSION_MAJOR = 0
-LIB_VERSION_MINOR = 0
 
 LIB_STATIC = $(LIB_NAME).a
 
