@@ -7,6 +7,7 @@ LIB_VERSION_MAJOR = 0
 LIB_VERSION_MINOR = 0
 
 TAR_NAME = $(LIB_NAME)-$(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR)
+TAR_FILE := $(TAR_NAME).tar.gz
 
 LIB_DIST := Makefile Versions libbsd.pc
 
@@ -72,8 +73,9 @@ $(LIB_SHARED): $(LIB_SHARED_OBJS)
 dist: clean
 	mkdir $(TAR_NAME)
 	cp -a include src man $(LIB_DIST) $(TAR_NAME)
-	tar czf $(TAR_NAME).tar.gz $(TAR_NAME)
+	tar czf $(TAR_FILE) $(TAR_NAME)
 	rm -rf $(TAR_NAME)
+	gpg -a -b $(TAR_FILE)
 
 install: libs man
 	mkdir -p $(DESTDIR)/usr/lib/ $(DESTDIR)/lib/
