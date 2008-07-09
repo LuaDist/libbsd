@@ -1,8 +1,6 @@
 #
 # libbsd
 #
-# $Id$
-#
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
