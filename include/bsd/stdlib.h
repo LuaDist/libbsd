@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2005 Aurelien Jarno
  * Copyright (C) 2006 Robert Millan
+ * Copyright (C) 2008 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -28,6 +29,7 @@
 #ifndef LIBBSD_STDLIB_H
 #define LIBBSD_STDLIB_H
 
+#include <sys/stat.h>
 #include <stdlib.h>
 
 const char *fmtcheck (const char *, const char *);
@@ -36,5 +38,12 @@ char *getprogname ();
 void setprogname (char *);
 
 int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
+
+#ifndef S_ISTXT
+#define S_ISTXT S_ISVTX
+#endif
+
+mode_t getmode(const void *set, mode_t mode);
+void *setmode(const char *mode_str);
 
 #endif
