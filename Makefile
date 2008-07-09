@@ -6,6 +6,10 @@ LIB_NAME = libbsd
 LIB_VERSION_MAJOR = 0
 LIB_VERSION_MINOR = 0
 
+TAR_NAME = $(LIB_NAME)-$(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR)
+
+LIB_DIST := Makefile Versions libbsd.pc
+
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
 	    hash/md5.c hash/md5hl.c \
@@ -63,6 +67,12 @@ $(LIB_SHARED): $(LIB_SHARED_OBJS)
 	  -Wl,-soname -Wl,$(LIB_SONAME) \
 	  -Wl,--version-script=Versions \
 	  -o $@ $^
+
+dist: clean
+	mkdir $(TAR_NAME)
+	cp -a include src man $(LIB_DIST) $(TAR_NAME)
+	tar czf $(TAR_NAME).tar.gz $(TAR_NAME)
+	rm -rf $(TAR_NAME)
 
 install: libs man
 	mkdir -p $(DESTDIR)/usr/lib/ $(DESTDIR)/lib/
