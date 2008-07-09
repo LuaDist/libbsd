@@ -57,6 +57,10 @@
 # endif
 #endif
 
+#ifndef __bounded__
+# define __bounded__(x, y, z)
+#endif
+
 #ifndef __FBSDID
 # define __FBSDID(x)
 #endif
