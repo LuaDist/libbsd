@@ -34,15 +34,15 @@
 char *
 fgetln (FILE *stream, size_t *len)
 {
-	char *line=NULL;
+	char *line = NULL;
 	ssize_t nread;
 
 	nread = getline (&line, len, stream);
 	if (nread == -1)
 		return NULL;
 
-	(*len)--; /* get rid of the trailing \0, fgetln
-		     does not have it */
+	/* Get rid of the trailing \0, fgetln does not have it. */
+	(*len)--;
 
 	return line;
 }
