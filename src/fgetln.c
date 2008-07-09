@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2005 Hector Garcia Alvarez
- * Copyright (C) 2005 Guillem Jover
+ * Copyright (C) 2005, 2008 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -32,9 +32,7 @@
 
 #ifdef __GLIBC__
 char *
-fgetln (stream, len)
-	FILE *stream;
-	size_t *len;
+fgetln (FILE *stream, size_t *len)
 {
 	char *line=NULL;
 	size_t nread = 0;
