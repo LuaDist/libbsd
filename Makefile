@@ -16,7 +16,7 @@ LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR)
 TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
-LIB_DIST := Makefile ChangeLog Versions $(LIB_PKGCONFIG).in
+LIB_DIST := Makefile README ChangeLog Versions $(LIB_PKGCONFIG).in
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
