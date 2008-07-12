@@ -16,7 +16,7 @@ LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR)
 TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
-LIB_DIST := Makefile Versions $(LIB_PKGCONFIG)
+LIB_DIST := Makefile ChangeLog Versions $(LIB_PKGCONFIG)
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
@@ -71,7 +71,12 @@ $(LIB_SHARED): $(LIB_SHARED_OBJS)
 	  -Wl,--version-script=Versions \
 	  -o $@ $^
 
-dist: clean
+.PHONY: ChangeLog
+
+ChangeLog:
+	-git log --stat -C >$@
+
+dist: ChangeLog
 	mkdir $(TAR_NAME)
 	cp -a include src man $(LIB_DIST) $(TAR_NAME)
 	tar czf $(TAR_FILE) $(TAR_NAME)
