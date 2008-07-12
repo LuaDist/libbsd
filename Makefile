@@ -16,7 +16,7 @@ LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR)
 TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
-LIB_DIST := Makefile ChangeLog Versions $(LIB_PKGCONFIG)
+LIB_DIST := Makefile ChangeLog Versions $(LIB_PKGCONFIG).in
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
@@ -64,6 +64,15 @@ man/md5.3:  man/mdX.3
 src/hash/md5hl.c: src/hash/helper.c
 	sed -e 's:hashinc:bsd/md5.h:g' -e 's:HASH:MD5:g' $< > $@
 
+# FIXME: the variables should be preserved unexpanded in the .pc file
+$(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
+	sed -e 's:@VERSION@:$(LIB_VERSION):' \
+	    -e 's:@prefix@:$(prefix):' \
+	    -e 's:@exec_prefix@:$(exec_prefix):' \
+	    -e 's:@libdir@:$(libdir):' \
+	    -e 's:@includedir@:$(includedir):' \
+	    $< > $@
+
 $(LIB_STATIC): $(LIB_STATIC_OBJS)
 	ar rcs $@ $^
 
@@ -91,7 +100,7 @@ dist: ChangeLog
 	rm -rf $(TAR_NAME)
 	gpg -a -b $(TAR_FILE)
 
-install: libs man
+install: libs man $(LIB_PKGCONFIG)
 	mkdir -p $(DESTDIR)/$(libdir)
 	mkdir -p $(DESTDIR)/$(usrlibdir)
 	mkdir -p $(DESTDIR)/$(includedir)/bsd/
@@ -108,6 +117,7 @@ install: libs man
 	ln -sf $(LIB_SHARED) $(DESTDIR)/$(libdir)/$(LIB_SONAME)
 
 clean:
+	rm -f $(LIB_PKGCONFIG)
 	rm -f $(LIB_GEN_SRCS)
 	rm -f $(LIB_STATIC_OBJS)
 	rm -f $(LIB_STATIC)
