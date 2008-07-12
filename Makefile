@@ -7,6 +7,7 @@ LIB_VERSION_MAJOR = 0
 LIB_VERSION_MINOR = 0
 LIB_VERSION := $(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR)
 
+LIB_PKGCONFIG := $(LIB_NAME).pc
 LIB_STATIC := $(LIB_NAME).a
 LIB_SHARED_SO := $(LIB_NAME).so
 LIB_SONAME := $(LIB_SHARED_SO).$(LIB_VERSION_MAJOR)
@@ -15,7 +16,7 @@ LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR)
 TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
-LIB_DIST := Makefile Versions libbsd.pc
+LIB_DIST := Makefile Versions $(LIB_PKGCONFIG)
 
 LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
 	    humanize_number.c inet_net_pton.c \
@@ -86,7 +87,7 @@ install: libs man
 	install -m644 $(LIB_SHARED) $(DESTDIR)/lib/
 	for i in $(LIB_INCLUDES) ; do install -m644 include/$$i $(DESTDIR)/usr/include/$$i ; done
 	install -m644 $(LIB_MANS) $(DESTDIR)/usr/share/man/man3
-	install -m644 $(LIB_NAME).pc $(DESTDIR)/usr/lib/pkgconfig
+	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)/usr/lib/pkgconfig
 	ln -sf /lib/$(LIB_SHARED) $(DESTDIR)/usr/lib/$(LIB_SHARED_SO)
 	ln -sf $(LIB_SHARED) $(DESTDIR)/lib/$(LIB_SONAME)
 
