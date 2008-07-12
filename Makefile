@@ -40,6 +40,14 @@ LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
 
 MK_CFLAGS = -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
+prefix		:= /usr
+exec_prefix	:=
+libdir		:= ${exec_prefix}/lib
+usrlibdir	:= ${prefix}/lib
+includedir	:= ${prefix}/include
+pkgconfigdir	:= ${usrlibdir}/pkgconfig
+mandir		:= ${prefix}/share/man
+
 libs: $(LIB_STATIC) $(LIB_SHARED_SO)
 
 man: $(LIB_MANS)
@@ -84,17 +92,20 @@ dist: ChangeLog
 	gpg -a -b $(TAR_FILE)
 
 install: libs man
-	mkdir -p $(DESTDIR)/usr/lib/ $(DESTDIR)/lib/
-	mkdir -p $(DESTDIR)/usr/include/bsd/
-	mkdir -p $(DESTDIR)/usr/share/man/man3
-	mkdir -p $(DESTDIR)/usr/lib/pkgconfig
-	install -m644 $(LIB_STATIC) $(DESTDIR)/usr/lib/
-	install -m644 $(LIB_SHARED) $(DESTDIR)/lib/
-	for i in $(LIB_INCLUDES) ; do install -m644 include/$$i $(DESTDIR)/usr/include/$$i ; done
-	install -m644 $(LIB_MANS) $(DESTDIR)/usr/share/man/man3
-	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)/usr/lib/pkgconfig
-	ln -sf /lib/$(LIB_SHARED) $(DESTDIR)/usr/lib/$(LIB_SHARED_SO)
-	ln -sf $(LIB_SHARED) $(DESTDIR)/lib/$(LIB_SONAME)
+	mkdir -p $(DESTDIR)/$(libdir)
+	mkdir -p $(DESTDIR)/$(usrlibdir)
+	mkdir -p $(DESTDIR)/$(includedir)/bsd/
+	mkdir -p $(DESTDIR)/$(mandir)/man3
+	mkdir -p $(DESTDIR)/$(pkgconfigdir)
+	install -m644 $(LIB_STATIC) $(DESTDIR)/$(usrlibdir)
+	install -m644 $(LIB_SHARED) $(DESTDIR)/$(libdir)
+	for i in $(LIB_INCLUDES); do \
+	  install -m644 include/$$i $(DESTDIR)/$(includedir)/$$i; \
+	done
+	install -m644 $(LIB_MANS) $(DESTDIR)/$(mandir)/man3
+	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)/$(pkgconfigdir)
+	ln -sf $(libdir)/$(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
+	ln -sf $(LIB_SHARED) $(DESTDIR)/$(libdir)/$(LIB_SONAME)
 
 clean:
 	rm -f $(LIB_GEN_SRCS)
