@@ -1,6 +1,6 @@
-LIB_NAME = libbsd
-LIB_VERSION_MAJOR = 0
-LIB_VERSION_MINOR = 0
+LIB_NAME := libbsd
+LIB_VERSION_MAJOR := 0
+LIB_VERSION_MINOR := 0
 LIB_VERSION := $(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR)
 
 LIB_PKGCONFIG := $(LIB_NAME).pc
@@ -62,10 +62,10 @@ LIB_MANS := \
 	md5.3
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
-LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
-LIB_SHARED_OBJS = $(LIB_SRCS:%.c=%.lo)
+LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
+LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
 
-MK_CFLAGS = -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
+MK_CFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
 prefix		:= /usr
 exec_prefix	:=
