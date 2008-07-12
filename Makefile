@@ -1,7 +1,3 @@
-#
-# libbsd
-#
-
 LIB_NAME = libbsd
 LIB_VERSION_MAJOR = 0
 LIB_VERSION_MINOR = 0
