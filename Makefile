@@ -65,6 +65,9 @@ LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
 
+# Set default value for compilation
+CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
+
 MK_CFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
 prefix		:= /usr
