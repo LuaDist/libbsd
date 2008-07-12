@@ -4,7 +4,7 @@ libdir=@libdir@
 includedir=@includedir@
 
 Name: libbsd
-Description: BSD compatibility library
+Description: Utility functions from BSD systems
 Version: @VERSION@
 URL: http://libbsd.freedesktop.org/
 Libs: -L${libdir} -lbsd
