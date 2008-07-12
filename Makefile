@@ -48,8 +48,10 @@ includedir	:= ${prefix}/include
 pkgconfigdir	:= ${usrlibdir}/pkgconfig
 mandir		:= ${prefix}/share/man
 
+.PHONY: libs
 libs: $(LIB_STATIC) $(LIB_SHARED_SO)
 
+.PHONY: man
 man: $(LIB_MANS)
 
 %.lo: %.c
@@ -89,10 +91,10 @@ $(LIB_SHARED): $(LIB_SHARED_OBJS)
 	  -o $@ $^
 
 .PHONY: ChangeLog
-
 ChangeLog:
 	-git log --stat -C >$@
 
+.PHONY: dist
 dist: ChangeLog
 	mkdir $(TAR_NAME)
 	cp -a include src man $(LIB_DIST) $(TAR_NAME)
@@ -100,6 +102,7 @@ dist: ChangeLog
 	rm -rf $(TAR_NAME)
 	gpg -a -b $(TAR_FILE)
 
+.PHONY: install
 install: libs man $(LIB_PKGCONFIG)
 	mkdir -p $(DESTDIR)/$(libdir)
 	mkdir -p $(DESTDIR)/$(usrlibdir)
@@ -116,6 +119,7 @@ install: libs man $(LIB_PKGCONFIG)
 	ln -sf $(libdir)/$(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
 	ln -sf $(LIB_SHARED) $(DESTDIR)/$(libdir)/$(LIB_SONAME)
 
+.PHONY: clean
 clean:
 	rm -f $(LIB_PKGCONFIG)
 	rm -f $(LIB_GEN_SRCS)
