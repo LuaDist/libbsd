@@ -79,7 +79,7 @@ pkgconfigdir	:= ${usrlibdir}/pkgconfig
 mandir		:= ${prefix}/share/man
 
 .PHONY: libs
-libs: $(LIB_STATIC) $(LIB_SHARED_SO)
+libs: $(LIB_STATIC) $(LIB_SHARED_SO) $(LIB_PKGCONFIG)
 
 .PHONY: man
 man: $(LIB_MANS)
@@ -133,7 +133,7 @@ dist: ChangeLog
 	gpg -a -b $(TAR_FILE)
 
 .PHONY: install
-install: libs man $(LIB_PKGCONFIG)
+install: libs man
 	mkdir -p $(DESTDIR)/$(libdir)
 	mkdir -p $(DESTDIR)/$(usrlibdir)
 	mkdir -p $(DESTDIR)/$(includedir)/bsd/
