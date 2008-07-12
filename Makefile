@@ -16,23 +16,54 @@ LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR)
 TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
-LIB_DIST := Makefile README ChangeLog Versions $(LIB_PKGCONFIG).in
+LIB_DIST := \
+	Makefile \
+	README \
+	ChangeLog \
+	Versions \
+	$(LIB_PKGCONFIG).in
 
-LIB_SRCS := arc4random.c bsd_getopt.c err.c fgetln.c heapsort.c \
-	    humanize_number.c inet_net_pton.c \
-	    hash/md5.c hash/md5hl.c \
-	    setmode.c \
-	    strlcat.c strlcpy.c fmtcheck.c progname.c vis.c unvis.c
+LIB_SRCS := \
+	arc4random.c \
+	bsd_getopt.c \
+	err.c \
+	fgetln.c \
+	heapsort.c \
+	humanize_number.c \
+	inet_net_pton.c \
+	hash/md5.c hash/md5hl.c \
+	setmode.c \
+	strlcat.c strlcpy.c \
+	fmtcheck.c \
+	progname.c \
+	vis.c unvis.c
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
 
 LIB_GEN_SRCS := \
 	man/md5.3 \
 	src/hash/md5hl.c
 
-LIB_INCLUDES := bsd/err.h bsd/getopt.h bsd/ip_icmp.h bsd/random.h bsd/queue.h bsd/md5.h bsd/string.h \
-		bsd/bsd.h bsd/cdefs.h bsd/stdlib.h vis.h libutil.h
+LIB_INCLUDES := \
+	bsd/err.h \
+	bsd/getopt.h \
+	bsd/ip_icmp.h \
+	bsd/random.h \
+	bsd/queue.h \
+	bsd/md5.h \
+	bsd/string.h \
+	bsd/bsd.h \
+	bsd/cdefs.h \
+	bsd/stdlib.h \
+	vis.h \
+	libutil.h
 
-LIB_MANS := arc4random.3 strlcpy.3 fgetln.3 fmtcheck.3 setmode.3 md5.3
+LIB_MANS := \
+	arc4random.3 \
+	strlcpy.3 \
+	fgetln.3 \
+	fmtcheck.3 \
+	setmode.3 \
+	md5.3
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS = $(LIB_SRCS:%.c=%.o)
