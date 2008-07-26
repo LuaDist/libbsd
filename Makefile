@@ -37,7 +37,7 @@ LIB_SRCS := \
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
 
 LIB_GEN_SRCS := \
-	man/md5.3 \
+	man/md5.3bsd \
 	src/hash/md5hl.c
 
 LIB_INCLUDES := \
@@ -61,7 +61,7 @@ LIB_MANS := \
 	fgetln.3 \
 	fmtcheck.3 \
 	setmode.3 \
-	md5.3
+	md5.3bsd
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
@@ -92,7 +92,7 @@ man: $(LIB_MANS)
 %.o: %.c
 	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -c $<
 
-man/md5.3:  man/mdX.3
+man/md5.3bsd:  man/mdX.3
 	sed -e 's/mdX/md5/g' -e 's/mdY/md4/g' -e 's/MDX/MD5/g' $< > $@
 
 src/hash/md5hl.c: src/hash/helper.c
