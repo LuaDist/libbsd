@@ -130,7 +130,7 @@ ChangeLog:
 dist: ChangeLog
 	mkdir $(TAR_NAME)
 	cp -a include src man $(LIB_DIST) $(TAR_NAME)
-	tar czf $(TAR_FILE) $(TAR_NAME)
+	tar czf $(TAR_FILE) --exclude=.gitignore $(TAR_NAME)
 	rm -rf $(TAR_NAME)
 	gpg -a -b $(TAR_FILE)
 
