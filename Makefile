@@ -43,6 +43,7 @@ LIB_GEN_SRCS := \
 LIB_INCLUDES := \
 	bsd/err.h \
 	bsd/getopt.h \
+	bsd/inet.h \
 	bsd/ip_icmp.h \
 	bsd/random.h \
 	bsd/queue.h \
