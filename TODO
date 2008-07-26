@@ -1,0 +1,4 @@
+* Add more functions used by ported packages (check openssh).
+* Fix includes on man pages.
+* Add missing man pages.
+* Add a README.import file.
