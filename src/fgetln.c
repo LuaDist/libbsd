@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2005 Hector Garcia Alvarez
- * Copyright (C) 2005, 2008 Guillem Jover
+ * Copyright (C) 2005, 2008, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -35,16 +35,17 @@ char *
 fgetln (FILE *stream, size_t *len)
 {
 	char *line = NULL;
+	size_t line_len = 0;
 	ssize_t nread;
 
-	nread = getline (&line, len, stream);
-	if (nread == -1)
+	nread = getline(&line, &line_len, stream);
+	if (nread == -1) {
+		*len = 0;
 		return NULL;
-
-	/* Get rid of the trailing \0, fgetln does not have it. */
-	(*len)--;
-
-	return line;
+	} else {
+		*len = (size_t)nread;
+		return line;
+	}
 }
 #endif
 
