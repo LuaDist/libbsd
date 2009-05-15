@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004, 2005 Guillem Jover
+ * Copyright (C) 2004, 2005, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -35,5 +35,7 @@ size_t strlcpy(char *dst, const char *src, size_t siz);
 size_t strlcat(char *dst, const char *src, size_t siz);
 char *fgetln(FILE *fp, size_t *lenp);
 wchar_t *fgetwln(FILE * __restrict fp, size_t *lenp);
+
+void strmode(mode_t mode, char *str);
 
 #endif

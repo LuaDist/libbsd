@@ -34,3 +34,8 @@ LIBBSD_0.0 {
   local:
     *;
 };
+
+LIBBSD_0.1 {
+    strmode;
+} LIBBSD_0.0;
+

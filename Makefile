@@ -1,7 +1,7 @@
 LIB_NAME := libbsd
 LIB_VERSION_MAJOR := 0
-LIB_VERSION_MINOR := 0
-LIB_VERSION_MICRO := 1
+LIB_VERSION_MINOR := 1
+LIB_VERSION_MICRO := 0
 LIB_VERSION := $(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR).$(LIB_VERSION_MICRO)
 
 LIB_PKGCONFIG := $(LIB_NAME).pc
@@ -30,6 +30,7 @@ LIB_SRCS := \
 	inet_net_pton.c \
 	hash/md5.c hash/md5hl.c \
 	setmode.c \
+	strmode.c \
 	strlcat.c strlcpy.c \
 	fmtcheck.c \
 	progname.c \
@@ -61,6 +62,7 @@ LIB_MANS := \
 	fgetln.3 \
 	fmtcheck.3 \
 	setmode.3 \
+	strmode.3 \
 	md5.3bsd
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
