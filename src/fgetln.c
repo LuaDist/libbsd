@@ -34,8 +34,8 @@
 char *
 fgetln (FILE *stream, size_t *len)
 {
-	char *line = NULL;
-	size_t line_len = 0;
+	static char *line = NULL;
+	static size_t line_len = 0;
 	ssize_t nread;
 
 	nread = getline(&line, &line_len, stream);
