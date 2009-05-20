@@ -33,6 +33,7 @@ LIB_SRCS := \
 	strmode.c \
 	strlcat.c strlcpy.c \
 	fmtcheck.c \
+	nlist.c \
 	progname.c \
 	vis.c unvis.c
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
