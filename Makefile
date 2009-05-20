@@ -54,6 +54,7 @@ LIB_INCLUDES := \
 	bsd/bsd.h \
 	bsd/cdefs.h \
 	bsd/stdlib.h \
+	nlist.h \
 	vis.h \
 	libutil.h
 
@@ -62,6 +63,7 @@ LIB_MANS := \
 	strlcpy.3 \
 	fgetln.3 \
 	fmtcheck.3 \
+	nlist.3 \
 	setmode.3 \
 	strmode.3 \
 	md5.3bsd
