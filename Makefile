@@ -60,11 +60,15 @@ LIB_INCLUDES := \
 
 LIB_MANS := \
 	arc4random.3 \
+	arc4random_addrandom.3 \
+	arc4random_stir.3 \
 	strlcpy.3 \
+	strlcat.3 \
 	fgetln.3 \
 	fmtcheck.3 \
 	nlist.3 \
 	setmode.3 \
+	getmode.3 \
 	strmode.3 \
 	md5.3bsd
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
