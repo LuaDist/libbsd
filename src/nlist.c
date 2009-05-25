@@ -155,7 +155,7 @@ __aout_fdnlist(fd, list)
 	}
 
 	symoff = N_SYMOFF(*exec);
-	symsize = exec->a_syms;
+	symsize = N_SYMSIZE(*exec);
 	stroff = symoff + symsize;
 
 	/* find the string table in our mmapped area */
