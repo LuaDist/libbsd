@@ -65,6 +65,7 @@ LIB_MANS := \
 	strlcpy.3 \
 	strlcat.3 \
 	fgetln.3 \
+	humanize_number.3 \
 	fmtcheck.3 \
 	nlist.3 \
 	setmode.3 \
