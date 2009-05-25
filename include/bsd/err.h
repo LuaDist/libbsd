@@ -28,6 +28,7 @@
 #define LIBBSD_ERR_H
 
 #include <err.h>
+#include <stdarg.h>
 
 extern void warnc (int code, const char *format, ...);
 extern void vwarnc (int code, const char *format, va_list ap);
