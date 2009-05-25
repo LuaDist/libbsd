@@ -112,7 +112,7 @@ $(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
 	sed -e 's:@VERSION@:$(LIB_VERSION):' \
 	    -e 's:@prefix@:$(value prefix):' \
 	    -e 's:@exec_prefix@:$(value exec_prefix):' \
-	    -e 's:@libdir@:$(value libdir):' \
+	    -e 's:@libdir@:$(value usrlibdir):' \
 	    -e 's:@includedir@:$(value includedir):' \
 	    $< > $@
 
