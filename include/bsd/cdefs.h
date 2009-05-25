@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004, 2005, 2006 Guillem Jover
+ * Copyright © 2004, 2005, 2006, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -59,6 +59,10 @@
 
 #ifndef __bounded__
 # define __bounded__(x, y, z)
+#endif
+
+#ifndef __RCSID
+# define __RCSID(x)
 #endif
 
 #ifndef __FBSDID
