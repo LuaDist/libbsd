@@ -1,5 +1,6 @@
 /*
  * Copyright © 2006 Robert Millan
+ * Copyright © 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,12 +28,15 @@
 #ifndef LIBBSD_ERR_H
 #define LIBBSD_ERR_H
 
+#include <sys/cdefs.h>
 #include <err.h>
 #include <stdarg.h>
 
+__BEGIN_DECLS
 extern void warnc (int code, const char *format, ...);
 extern void vwarnc (int code, const char *format, va_list ap);
 extern void errc (int status, int code, const char *format, ...);
 extern void verrc (int status, int code, const char *format, va_list ap);
+__END_DECLS
 
 #endif

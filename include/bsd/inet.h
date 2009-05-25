@@ -1,5 +1,5 @@
 /*
- * Copyright © 2008 Guillem Jover
+ * Copyright © 2008, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,9 +27,12 @@
 #ifndef LIBBSD_INET_H
 #define LIBBSD_INET_H
 
+#include <sys/cdefs.h>
 #include <stddef.h>
 
+__BEGIN_DECLS
 int inet_net_pton(int af, const char *src, void *dst, siez_t size);
+__END_DECLS
 
 #endif
 

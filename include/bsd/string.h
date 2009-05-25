@@ -27,15 +27,18 @@
 #ifndef LIBBSD_STRING_H
 #define LIBBSD_STRING_H
 
+#include <sys/cdefs.h>
 #include <sys/types.h>
 #include <stddef.h>
 #include <stdio.h>
 
+__BEGIN_DECLS
 size_t strlcpy(char *dst, const char *src, size_t siz);
 size_t strlcat(char *dst, const char *src, size_t siz);
 char *fgetln(FILE *fp, size_t *lenp);
 wchar_t *fgetwln(FILE * __restrict fp, size_t *lenp);
 
 void strmode(mode_t mode, char *str);
+__END_DECLS
 
 #endif

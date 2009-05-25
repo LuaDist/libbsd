@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004, 2005 Guillem Jover
+ * Copyright © 2004, 2005, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,11 +27,14 @@
 #ifndef LIBBSD_RANDOM_H
 #define LIBBSD_RANDOM_H
 
+#include <sys/cdefs.h>
 #include <sys/types.h>
 
+__BEGIN_DECLS
 u_int32_t arc4random();
 void arc4random_stir();
 void arc4random_addrandom(u_char *dat, int datlen);
+__END_DECLS
 
 #endif
 

@@ -1,7 +1,7 @@
 /*
  * Copyright © 2005 Aurelien Jarno
  * Copyright © 2006 Robert Millan
- * Copyright © 2008 Guillem Jover
+ * Copyright © 2008, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,9 +29,11 @@
 #ifndef LIBBSD_STDLIB_H
 #define LIBBSD_STDLIB_H
 
+#include <sys/cdefs.h>
 #include <sys/stat.h>
 #include <stdlib.h>
 
+__BEGIN_DECLS
 const char *fmtcheck (const char *, const char *);
 
 char *getprogname ();
@@ -45,5 +47,6 @@ int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
 mode_t getmode(const void *set, mode_t mode);
 void *setmode(const char *mode_str);
+__END_DECLS
 
 #endif

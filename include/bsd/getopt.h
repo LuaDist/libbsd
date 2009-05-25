@@ -1,5 +1,6 @@
 /*
  * Copyright © 2006 Robert Millan
+ * Copyright © 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,10 +28,13 @@
 #ifndef LIBBSD_GETOPT_H
 #define LIBBSD_GETOPT_H
 
+#include <sys/cdefs.h>
 #include <getopt.h>
 
+__BEGIN_DECLS
 extern int optreset;
 
 int bsd_getopt (int, char **, char *);
+__END_DECLS
 
 #endif
