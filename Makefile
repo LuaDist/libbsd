@@ -82,13 +82,13 @@ CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
 
 MK_CFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
-prefix		:= /usr
-exec_prefix	:=
-libdir		:= ${exec_prefix}/lib
-usrlibdir	:= ${prefix}/lib
-includedir	:= ${prefix}/include
-pkgconfigdir	:= ${usrlibdir}/pkgconfig
-mandir		:= ${prefix}/share/man
+prefix		= /usr
+exec_prefix	=
+libdir		= ${exec_prefix}/lib
+usrlibdir	= ${prefix}/lib
+includedir	= ${prefix}/include
+pkgconfigdir	= ${usrlibdir}/pkgconfig
+mandir		= ${prefix}/share/man
 
 .PHONY: libs
 libs: $(LIB_STATIC) $(LIB_SHARED_SO) $(LIB_PKGCONFIG)
@@ -108,13 +108,12 @@ man/md5.3bsd:  man/mdX.3
 src/hash/md5hl.c: src/hash/helper.c
 	sed -e 's:hashinc:bsd/md5.h:g' -e 's:HASH:MD5:g' $< > $@
 
-# FIXME: the variables should be preserved unexpanded in the .pc file
 $(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
 	sed -e 's:@VERSION@:$(LIB_VERSION):' \
-	    -e 's:@prefix@:$(prefix):' \
-	    -e 's:@exec_prefix@:$(exec_prefix):' \
-	    -e 's:@libdir@:$(libdir):' \
-	    -e 's:@includedir@:$(includedir):' \
+	    -e 's:@prefix@:$(value prefix):' \
+	    -e 's:@exec_prefix@:$(value exec_prefix):' \
+	    -e 's:@libdir@:$(value libdir):' \
+	    -e 's:@includedir@:$(value includedir):' \
 	    $< > $@
 
 $(LIB_STATIC): $(LIB_STATIC_OBJS)
