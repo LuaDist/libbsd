@@ -157,7 +157,13 @@ install: libs man
 	done
 	install -m644 $(LIB_MANS) $(DESTDIR)/$(mandir)/man3
 	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)/$(pkgconfigdir)
+ifeq ($(libdir),$(usrlibdir))
+	# If both dirs are the same, do a relative symlink.
+	ln -sf $(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
+else
+	# Otherwise, do an absolute one.
 	ln -sf $(libdir)/$(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
+endif
 	ln -sf $(LIB_SHARED) $(DESTDIR)/$(libdir)/$(LIB_SONAME)
 
 .PHONY: clean
