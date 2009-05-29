@@ -57,6 +57,9 @@ static char sccsid[] = "@(#)nlist.c	8.1 (Berkeley) 6/4/93";
 
 #ifdef _NLIST_DO_AOUT
 static int __aout_fdnlist(int, struct nlist *);
+#ifndef N_SYMSIZE
+#define N_SYMSIZE(a)	((a).a_syms)
+#endif
 #endif
 #ifdef _NLIST_DO_ELF
 static int __elf_fdnlist(int, struct nlist *);
