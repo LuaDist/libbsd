@@ -69,4 +69,20 @@
 # define __FBSDID(x)
 #endif
 
+#ifndef __RCSID
+# define __RCSID(x)
+#endif
+
+#ifndef __RCSID_SOURCE
+# define __RCSID_SOURCE
+#endif
+
+#ifndef __SCCSID
+# define __SCCSID
+#endif
+
+#ifndef __COPYRIGHT
+# define __COPYRIGHT
+#endif
+
 #endif
