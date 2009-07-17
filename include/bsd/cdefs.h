@@ -37,6 +37,10 @@
 # define __dead2
 #endif
 
+#ifndef __pure2
+# define __pure2
+#endif
+
 /* Linux headers define a struct with a member names __unused.
  * Disable for now. */
 #if 0
