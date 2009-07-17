@@ -66,7 +66,7 @@
 #endif
 #define ELF_TARG_MACH	EM_AVR32
 #define ELF_TARG_CLASS	ELFCLASS32
-#if define(__LITTLE_ENDIAN__)
+#if defined(__LITTLE_ENDIAN__)
 #define ELF_TARG_DATA	ELFDATA2LSB
 #elif defined(__BIG_ENDIAN__)
 #define ELF_TARG_DATA	ELFDATA2LMSB
@@ -147,7 +147,7 @@
 
 #define ELF_TARG_MACH	EM_SH
 #define ELF_TARG_CLASS	ELFCLASS32
-#if define(__LITTLE_ENDIAN__)
+#if defined(__LITTLE_ENDIAN__)
 #define ELF_TARG_DATA	ELFDATA2LSB
 #elif defined(__BIG_ENDIAN__)
 #define ELF_TARG_DATA	ELFDATA2LMSB
