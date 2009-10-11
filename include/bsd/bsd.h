@@ -33,6 +33,7 @@
 
 #include <bsd/sys/cdefs.h>
 #include <bsd/sys/queue.h>
+#include <bsd/sys/tree.h>
 #include <bsd/stdlib.h>
 #include <bsd/string.h>
 #include <bsd/err.h>

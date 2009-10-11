@@ -48,6 +48,7 @@ LIB_INCLUDES := \
 	bsd/queue.h \
 	bsd/sys/cdefs.h \
 	bsd/sys/queue.h \
+	bsd/sys/tree.h \
 	bsd/err.h \
 	bsd/getopt.h \
 	bsd/inet.h \
