@@ -47,6 +47,9 @@ int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
 mode_t getmode(const void *set, mode_t mode);
 void *setmode(const char *mode_str);
+
+long long strtonum(const char *nptr, long long minval, long long maxval,
+                   const char **errstr);
 __END_DECLS
 
 #endif

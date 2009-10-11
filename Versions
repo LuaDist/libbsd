@@ -42,3 +42,7 @@ LIBBSD_0.1 {
     nlist;
 } LIBBSD_0.0;
 
+LIBBSD_0.2 {
+    strtonum;
+} LIBBSD_0.1;
+

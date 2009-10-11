@@ -31,6 +31,7 @@ LIB_SRCS := \
 	hash/md5.c hash/md5hl.c \
 	setmode.c \
 	strmode.c \
+	strtonum.c \
 	strlcat.c strlcpy.c \
 	fmtcheck.c \
 	nlist.c \
@@ -62,6 +63,7 @@ LIB_MANS := \
 	arc4random.3 \
 	arc4random_addrandom.3 \
 	arc4random_stir.3 \
+	strtonum.3 \
 	strlcpy.3 \
 	strlcat.3 \
 	fgetln.3 \
