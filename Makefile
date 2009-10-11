@@ -45,13 +45,14 @@ LIB_GEN_SRCS := \
 
 LIB_INCLUDES := \
 	bsd/cdefs.h \
+	bsd/queue.h \
 	bsd/sys/cdefs.h \
+	bsd/sys/queue.h \
 	bsd/err.h \
 	bsd/getopt.h \
 	bsd/inet.h \
 	bsd/ip_icmp.h \
 	bsd/random.h \
-	bsd/queue.h \
 	bsd/md5.h \
 	bsd/string.h \
 	bsd/bsd.h \
