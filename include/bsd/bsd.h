@@ -31,7 +31,7 @@
  * Include all bsd compat headers.
  */
 
-#include <bsd/cdefs.h>
+#include <bsd/sys/cdefs.h>
 #include <bsd/stdlib.h>
 #include <bsd/string.h>
 #include <bsd/err.h>

@@ -44,6 +44,8 @@ LIB_GEN_SRCS := \
 	src/hash/md5hl.c
 
 LIB_INCLUDES := \
+	bsd/cdefs.h \
+	bsd/sys/cdefs.h \
 	bsd/err.h \
 	bsd/getopt.h \
 	bsd/inet.h \
@@ -53,7 +55,6 @@ LIB_INCLUDES := \
 	bsd/md5.h \
 	bsd/string.h \
 	bsd/bsd.h \
-	bsd/cdefs.h \
 	bsd/stdlib.h \
 	nlist.h \
 	vis.h \
@@ -150,6 +151,7 @@ install: libs man
 	mkdir -p $(DESTDIR)$(libdir)
 	mkdir -p $(DESTDIR)$(usrlibdir)
 	mkdir -p $(DESTDIR)$(includedir)/bsd/
+	mkdir -p $(DESTDIR)$(includedir)/bsd/sys/
 	mkdir -p $(DESTDIR)$(mandir)/man3
 	mkdir -p $(DESTDIR)$(pkgconfigdir)
 	install -m644 $(LIB_STATIC) $(DESTDIR)$(usrlibdir)
