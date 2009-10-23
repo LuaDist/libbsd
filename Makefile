@@ -30,6 +30,7 @@ LIB_SRCS := \
 	dehumanize_number.c \
 	inet_net_pton.c \
 	hash/md5.c hash/md5hl.c \
+	readpassphrase.c \
 	setmode.c \
 	strmode.c \
 	strtonum.c \
@@ -60,6 +61,7 @@ LIB_INCLUDES := \
 	bsd/string.h \
 	bsd/bsd.h \
 	bsd/stdlib.h \
+	bsd/readpassphrase.h \
 	nlist.h \
 	vis.h \
 	libutil.h
@@ -72,6 +74,7 @@ LIB_MANS := \
 	strlcpy.3 \
 	strlcat.3 \
 	fgetln.3 \
+	readpassphrase.3 \
 	humanize_number.3 \
 	fmtcheck.3 \
 	nlist.3 \

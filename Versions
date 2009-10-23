@@ -49,5 +49,7 @@ LIBBSD_0.2 {
     strnunvis;
 
     dehumanize_number;
+
+    readpassphrase;
 } LIBBSD_0.1;
 
