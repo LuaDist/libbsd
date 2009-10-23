@@ -31,9 +31,15 @@
 
 #include <sys/cdefs.h>
 #include <sys/stat.h>
+#include <stdint.h>
 #include <stdlib.h>
 
+/* For compatibility with NetBSD, which defines humanize_number here. */
+#include <libutil.h>
+
 __BEGIN_DECLS
+int dehumanize_number(const char *str, int64_t *size);
+
 const char *fmtcheck (const char *, const char *);
 
 char *getprogname ();

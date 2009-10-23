@@ -27,6 +27,7 @@ LIB_SRCS := \
 	fgetln.c \
 	heapsort.c \
 	humanize_number.c \
+	dehumanize_number.c \
 	inet_net_pton.c \
 	hash/md5.c hash/md5hl.c \
 	setmode.c \

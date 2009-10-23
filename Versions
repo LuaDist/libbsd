@@ -47,5 +47,7 @@ LIBBSD_0.2 {
 
     strnvis;
     strnunvis;
+
+    dehumanize_number;
 } LIBBSD_0.1;
 
