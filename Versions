@@ -44,5 +44,8 @@ LIBBSD_0.1 {
 
 LIBBSD_0.2 {
     strtonum;
+
+    strnvis;
+    strnunvis;
 } LIBBSD_0.1;
 

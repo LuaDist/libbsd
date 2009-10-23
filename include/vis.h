@@ -78,8 +78,10 @@ __BEGIN_DECLS
 char	*vis(char *, int, int, int);
 int	strvis(char *, const char *, int);
 int	strvisx(char *, const char *, size_t, int);
+int	strnvis(char *, const char *, size_t, int);
 int	strunvis(char *, const char *);
 int	strunvisx(char *, const char *, int);
+ssize_t strnunvis(char *, const char *, size_t);
 int	unvis(char *, int, int *, int);
 __END_DECLS
 
