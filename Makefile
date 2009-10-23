@@ -145,26 +145,26 @@ dist: ChangeLog
 
 .PHONY: install
 install: libs man
-	mkdir -p $(DESTDIR)/$(libdir)
-	mkdir -p $(DESTDIR)/$(usrlibdir)
-	mkdir -p $(DESTDIR)/$(includedir)/bsd/
-	mkdir -p $(DESTDIR)/$(mandir)/man3
-	mkdir -p $(DESTDIR)/$(pkgconfigdir)
-	install -m644 $(LIB_STATIC) $(DESTDIR)/$(usrlibdir)
-	install -m644 $(LIB_SHARED) $(DESTDIR)/$(libdir)
+	mkdir -p $(DESTDIR)$(libdir)
+	mkdir -p $(DESTDIR)$(usrlibdir)
+	mkdir -p $(DESTDIR)$(includedir)/bsd/
+	mkdir -p $(DESTDIR)$(mandir)/man3
+	mkdir -p $(DESTDIR)$(pkgconfigdir)
+	install -m644 $(LIB_STATIC) $(DESTDIR)$(usrlibdir)
+	install -m644 $(LIB_SHARED) $(DESTDIR)$(libdir)
 	for i in $(LIB_INCLUDES); do \
-	  install -m644 include/$$i $(DESTDIR)/$(includedir)/$$i; \
+	  install -m644 include/$$i $(DESTDIR)$(includedir)/$$i; \
 	done
-	install -m644 $(LIB_MANS) $(DESTDIR)/$(mandir)/man3
-	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)/$(pkgconfigdir)
+	install -m644 $(LIB_MANS) $(DESTDIR)$(mandir)/man3
+	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)$(pkgconfigdir)
 ifeq ($(libdir),$(usrlibdir))
 	# If both dirs are the same, do a relative symlink.
-	ln -sf $(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
+	ln -sf $(LIB_SHARED) $(DESTDIR)$(usrlibdir)/$(LIB_SHARED_SO)
 else
 	# Otherwise, do an absolute one.
-	ln -sf $(libdir)/$(LIB_SHARED) $(DESTDIR)/$(usrlibdir)/$(LIB_SHARED_SO)
+	ln -sf $(libdir)/$(LIB_SHARED) $(DESTDIR)$(usrlibdir)/$(LIB_SHARED_SO)
 endif
-	ln -sf $(LIB_SHARED) $(DESTDIR)/$(libdir)/$(LIB_SONAME)
+	ln -sf $(LIB_SHARED) $(DESTDIR)$(libdir)/$(LIB_SONAME)
 
 .PHONY: clean
 clean:
