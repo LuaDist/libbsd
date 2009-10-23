@@ -34,13 +34,13 @@
 #include <bsd/sys/cdefs.h>
 #include <bsd/sys/queue.h>
 #include <bsd/sys/tree.h>
+#include <bsd/netinet/ip_icmp.h>
 #include <bsd/stdlib.h>
 #include <bsd/string.h>
 #include <bsd/err.h>
 #include <bsd/getopt.h>
 #include <bsd/random.h>
 #include <bsd/md5.h>
-#include <bsd/ip_icmp.h>
 #include <time.h>
 
 #endif

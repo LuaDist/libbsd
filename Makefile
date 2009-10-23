@@ -46,13 +46,14 @@ LIB_GEN_SRCS := \
 LIB_INCLUDES := \
 	bsd/cdefs.h \
 	bsd/queue.h \
+	bsd/ip_icmp.h \
 	bsd/sys/cdefs.h \
 	bsd/sys/queue.h \
 	bsd/sys/tree.h \
+	bsd/netinet/ip_icmp.h \
 	bsd/err.h \
 	bsd/getopt.h \
 	bsd/inet.h \
-	bsd/ip_icmp.h \
 	bsd/random.h \
 	bsd/md5.h \
 	bsd/string.h \
@@ -154,6 +155,7 @@ install: libs man
 	mkdir -p $(DESTDIR)$(usrlibdir)
 	mkdir -p $(DESTDIR)$(includedir)/bsd/
 	mkdir -p $(DESTDIR)$(includedir)/bsd/sys/
+	mkdir -p $(DESTDIR)$(includedir)/bsd/netinet/
 	mkdir -p $(DESTDIR)$(mandir)/man3
 	mkdir -p $(DESTDIR)$(pkgconfigdir)
 	install -m644 $(LIB_STATIC) $(DESTDIR)$(usrlibdir)
