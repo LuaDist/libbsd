@@ -79,15 +79,15 @@
 #endif
 
 #ifndef __RCSID_SOURCE
-# define __RCSID_SOURCE
+# define __RCSID_SOURCE(x)
 #endif
 
 #ifndef __SCCSID
-# define __SCCSID
+# define __SCCSID(x)
 #endif
 
 #ifndef __COPYRIGHT
-# define __COPYRIGHT
+# define __COPYRIGHT(x)
 #endif
 
 #endif
