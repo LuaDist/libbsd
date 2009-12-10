@@ -42,6 +42,7 @@
 #endif
 
 /* Linux headers define a struct with a member names __unused.
+ * Debian bugs: #522773 (linux), #522774 (libc).
  * Disable for now. */
 #if 0
 #ifndef __unused
