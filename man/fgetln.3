@@ -54,7 +54,7 @@ character.
 The length of the line, including the final newline,
 is stored in the memory location to which
 .Fa len
-points.
+points and is guaranteed to be greater than 0 upon successful completion.
 (Note, however, that if the line is the last
 in a file that does not end in a newline,
 the returned text will not contain a newline.)

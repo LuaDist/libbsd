@@ -39,6 +39,7 @@ fgetln (FILE *stream, size_t *len)
 	ssize_t nread;
 
 	nread = getline(&line, &line_len, stream);
+	/* Note: the getdelim/getline API ensures nread != 0. */
 	if (nread == -1) {
 		*len = 0;
 		return NULL;
