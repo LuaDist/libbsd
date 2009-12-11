@@ -62,6 +62,7 @@ LIB_INCLUDES := \
 	bsd/bsd.h \
 	bsd/stdlib.h \
 	bsd/readpassphrase.h \
+	bsd/unistd.h \
 	nlist.h \
 	vis.h \
 	libutil.h

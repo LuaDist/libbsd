@@ -1,6 +1,4 @@
 /*
- * Copyright © 2005 Aurelien Jarno
- * Copyright © 2006 Robert Millan
  * Copyright © 2008, 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
@@ -26,36 +24,19 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LIBBSD_STDLIB_H
-#define LIBBSD_STDLIB_H
+#ifndef LIBBSD_UNISTD_H
+#define LIBBSD_UNISTD_H
 
 #include <sys/cdefs.h>
 #include <sys/stat.h>
-#include <stdint.h>
-#include <stdlib.h>
 
-/* For compatibility with NetBSD, which defines humanize_number here. */
-#include <libutil.h>
-
-/* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
-#include <bsd/unistd.h>
+#ifndef S_ISTXT
+#define S_ISTXT S_ISVTX
+#endif
 
 __BEGIN_DECLS
-u_int32_t arc4random();
-void arc4random_stir();
-void arc4random_addrandom(u_char *dat, int datlen);
-
-int dehumanize_number(const char *str, int64_t *size);
-
-const char *fmtcheck (const char *, const char *);
-
-char *getprogname ();
-void setprogname (char *);
-
-int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
-
-long long strtonum(const char *nptr, long long minval, long long maxval,
-                   const char **errstr);
+mode_t getmode(const void *set, mode_t mode);
+void *setmode(const char *mode_str);
 __END_DECLS
 
 #endif
