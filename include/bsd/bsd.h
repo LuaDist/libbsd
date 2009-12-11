@@ -40,6 +40,8 @@
 #include <bsd/err.h>
 #include <bsd/getopt.h>
 #include <bsd/md5.h>
+
+/* FIXME: Will be removed in the future. */
 #include <time.h>
 
 #endif
