@@ -29,13 +29,13 @@
 
 #include <sys/cdefs.h>
 #include <sys/types.h>
-#include <stddef.h>
-#include <stdio.h>
+
+/* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
+#include <bsd/stdio.h>
 
 __BEGIN_DECLS
 size_t strlcpy(char *dst, const char *src, size_t siz);
 size_t strlcat(char *dst, const char *src, size_t siz);
-char *fgetln(FILE *fp, size_t *lenp);
 void strmode(mode_t mode, char *str);
 __END_DECLS
 

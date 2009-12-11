@@ -60,6 +60,7 @@ LIB_INCLUDES := \
 	bsd/md5.h \
 	bsd/string.h \
 	bsd/bsd.h \
+	bsd/stdio.h \
 	bsd/stdlib.h \
 	bsd/readpassphrase.h \
 	bsd/unistd.h \
