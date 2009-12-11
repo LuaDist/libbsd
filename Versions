@@ -6,7 +6,6 @@ LIBBSD_0.0 {
     bsd_getopt; optreset;
     errc; warnc; verrc; vwarnc;
     fgetln;
-    fgetwln;
     fmtcheck;
     heapsort;
     humanize_number;
