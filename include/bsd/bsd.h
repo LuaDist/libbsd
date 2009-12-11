@@ -39,7 +39,6 @@
 #include <bsd/string.h>
 #include <bsd/err.h>
 #include <bsd/getopt.h>
-#include <bsd/random.h>
 #include <bsd/md5.h>
 #include <time.h>
 

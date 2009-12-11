@@ -27,14 +27,9 @@
 #ifndef LIBBSD_RANDOM_H
 #define LIBBSD_RANDOM_H
 
-#include <sys/cdefs.h>
-#include <sys/types.h>
+#warning "This header is deprecated, use the one in bsd/stdlib.h instead."
 
-__BEGIN_DECLS
-u_int32_t arc4random();
-void arc4random_stir();
-void arc4random_addrandom(u_char *dat, int datlen);
-__END_DECLS
+#include <bsd/stdlib.h>
 
 #endif
 

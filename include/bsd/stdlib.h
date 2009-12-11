@@ -38,6 +38,10 @@
 #include <libutil.h>
 
 __BEGIN_DECLS
+u_int32_t arc4random();
+void arc4random_stir();
+void arc4random_addrandom(u_char *dat, int datlen);
+
 int dehumanize_number(const char *str, int64_t *size);
 
 const char *fmtcheck (const char *, const char *);
