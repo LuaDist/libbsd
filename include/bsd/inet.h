@@ -27,12 +27,9 @@
 #ifndef LIBBSD_INET_H
 #define LIBBSD_INET_H
 
-#include <sys/cdefs.h>
-#include <stddef.h>
+#warning "This header is deprecated, use the one in arpa/inet.h instead."
 
-__BEGIN_DECLS
-int inet_net_pton(int af, const char *src, void *dst, siez_t size);
-__END_DECLS
+#include <arpa/inet.h>
 
 #endif
 

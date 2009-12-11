@@ -9,7 +9,8 @@ LIBBSD_0.0 {
     fmtcheck;
     heapsort;
     humanize_number;
-    inet_net_pton;
+
+    inet_net_pton; /* XXX: Already provided by glibc, remove. */
 
     getprogname; setprogname;
     strlcpy;
