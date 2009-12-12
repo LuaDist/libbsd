@@ -14,11 +14,7 @@ TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
 LIB_DIST := \
-	Makefile \
-	README \
-	ChangeLog \
-	Versions \
-	$(LIB_PKGCONFIG).in
+	ChangeLog
 
 LIB_SRCS_GEN := \
 	hash/md5hl.c
@@ -151,9 +147,9 @@ ChangeLog:
 	-git log --stat -C >$@
 
 .PHONY: dist
-dist: ChangeLog
+dist: $(LIB_DIST)
 	mkdir $(TAR_NAME)
-	cp -a include src man $(LIB_DIST) $(TAR_NAME)
+	cp -a --parents $(LIB_DIST) `git ls-files` $(TAR_NAME)
 	tar czf $(TAR_FILE) --exclude=.gitignore $(TAR_NAME)
 	rm -rf $(TAR_NAME)
 	gpg -a -b $(TAR_FILE)
