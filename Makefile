@@ -1,3 +1,5 @@
+VERSION := $(shell ./get-version)
+
 LIB_NAME := libbsd
 LIB_VERSION_MAJOR := 0
 LIB_VERSION_MINOR := 1
@@ -10,7 +12,7 @@ LIB_SHARED_SO := $(LIB_NAME).so
 LIB_SONAME := $(LIB_SHARED_SO).$(LIB_VERSION_MAJOR)
 LIB_SHARED := $(LIB_SONAME).$(LIB_VERSION_MINOR).$(LIB_VERSION_MICRO)
 
-TAR_NAME := $(LIB_NAME)-$(LIB_VERSION)
+TAR_NAME := $(LIB_NAME)-$(VERSION)
 TAR_FILE := $(TAR_NAME).tar.gz
 
 LIB_DIST := \
@@ -120,7 +122,7 @@ src/hash/md5hl.c: src/hash/helper.c
 	sed -e 's:hashinc:bsd/md5.h:g' -e 's:HASH:MD5:g' $< > $@
 
 $(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
-	sed -e 's:@VERSION@:$(LIB_VERSION):' \
+	sed -e 's:@VERSION@:$(VERSION):' \
 	    -e 's:@prefix@:$(value prefix):' \
 	    -e 's:@exec_prefix@:$(value exec_prefix):' \
 	    -e 's:@libdir@:$(value usrlibdir):' \
@@ -149,6 +151,7 @@ ChangeLog:
 .PHONY: dist
 dist: $(LIB_DIST)
 	mkdir $(TAR_NAME)
+	echo $(VERSION) >$(TAR_NAME)/.dist-version
 	cp -a --parents $(LIB_DIST) `git ls-files` $(TAR_NAME)
 	tar czf $(TAR_FILE) --exclude=.gitignore $(TAR_NAME)
 	rm -rf $(TAR_NAME)
