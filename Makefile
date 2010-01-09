@@ -20,6 +20,8 @@ LIB_DIST := \
 	Versions \
 	$(LIB_PKGCONFIG).in
 
+LIB_SRCS_GEN := \
+	hash/md5hl.c
 LIB_SRCS := \
 	arc4random.c \
 	bsd_getopt.c \
@@ -29,7 +31,7 @@ LIB_SRCS := \
 	humanize_number.c \
 	dehumanize_number.c \
 	inet_net_pton.c \
-	hash/md5.c hash/md5hl.c \
+	hash/md5.c \
 	readpassphrase.c \
 	setmode.c \
 	strmode.c \
@@ -38,12 +40,10 @@ LIB_SRCS := \
 	fmtcheck.c \
 	nlist.c \
 	progname.c \
-	vis.c unvis.c
+	vis.c unvis.c \
+	$(LIB_SRCS_GEN)
+LIB_SRCS_GEN := $(patsubst %,src/%,$(LIB_SRCS_GEN))
 LIB_SRCS := $(patsubst %,src/%,$(LIB_SRCS))
-
-LIB_GEN_SRCS := \
-	man/md5.3bsd \
-	src/hash/md5hl.c
 
 LIB_INCLUDES := \
 	bsd/cdefs.h \
@@ -68,6 +68,8 @@ LIB_INCLUDES := \
 	vis.h \
 	libutil.h
 
+LIB_MANS_GEN := \
+	md5.3bsd
 LIB_MANS := \
 	arc4random.3 \
 	arc4random_addrandom.3 \
@@ -83,7 +85,8 @@ LIB_MANS := \
 	setmode.3 \
 	getmode.3 \
 	strmode.3 \
-	md5.3bsd
+	$(LIB_MANS_GEN)
+LIB_MANS_GEN := $(patsubst %,man/%,$(LIB_MANS_GEN))
 LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
@@ -183,7 +186,7 @@ endif
 .PHONY: clean
 clean:
 	rm -f $(LIB_PKGCONFIG)
-	rm -f $(LIB_GEN_SRCS)
+	rm -f $(LIB_SRCS_GEN) $(LIB_MANS_GEN)
 	rm -f $(LIB_STATIC_OBJS)
 	rm -f $(LIB_STATIC)
 	rm -f $(LIB_SHARED_OBJS)
