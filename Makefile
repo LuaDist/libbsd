@@ -84,8 +84,8 @@ LIB_MANS := \
 	getmode.3 \
 	strmode.3 \
 	$(LIB_MANS_GEN)
-LIB_MANS_GEN := $(patsubst %,man/%,$(LIB_MANS_GEN))
-LIB_MANS := $(patsubst %,man/%,$(LIB_MANS))
+LIB_MANS_GEN := $(patsubst %,src/%,$(LIB_MANS_GEN))
+LIB_MANS := $(patsubst %,src/%,$(LIB_MANS))
 
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
@@ -115,7 +115,7 @@ man: $(LIB_MANS)
 %.o: %.c
 	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -c $<
 
-man/md5.3bsd:  man/mdX.3
+src/md5.3bsd:  src/mdX.3
 	sed -e 's/mdX/md5/g' -e 's/mdY/md4/g' -e 's/MDX/MD5/g' $< > $@
 
 src/hash/md5hl.c: src/hash/helper.c
