@@ -51,5 +51,7 @@ LIBBSD_0.2 {
     dehumanize_number;
 
     readpassphrase;
+
+    flopen;
 } LIBBSD_0.1;
 

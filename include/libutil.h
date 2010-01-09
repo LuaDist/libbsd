@@ -46,6 +46,8 @@
 __BEGIN_DECLS
 int humanize_number(char *buf, size_t len, int64_t bytes,
     const char *suffix, int scale, int flags);
+
+int flopen(const char *_path, int _flags, ...);
 __END_DECLS
 
 /* humanize_number(3) */
