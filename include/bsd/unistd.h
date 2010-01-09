@@ -37,6 +37,8 @@
 __BEGIN_DECLS
 mode_t getmode(const void *set, mode_t mode);
 void *setmode(const char *mode_str);
+
+void setproctitle(const char *fmt, ...);
 __END_DECLS
 
 #endif

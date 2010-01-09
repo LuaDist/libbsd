@@ -58,5 +58,7 @@ LIBBSD_0.2 {
     pidfile_write;
     pidfile_close;
     pidfile_remove;
+
+    setproctitle;
 } LIBBSD_0.1;
 

@@ -34,6 +34,7 @@ LIB_SRCS := \
 	pidfile.c \
 	readpassphrase.c \
 	setmode.c \
+	setproctitle.c \
 	strmode.c \
 	strtonum.c \
 	strlcat.c strlcpy.c \
