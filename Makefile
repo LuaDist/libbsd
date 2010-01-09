@@ -31,6 +31,7 @@ LIB_SRCS := \
 	dehumanize_number.c \
 	inet_net_pton.c \
 	hash/md5.c \
+	pidfile.c \
 	readpassphrase.c \
 	setmode.c \
 	strmode.c \
@@ -82,6 +83,7 @@ LIB_MANS := \
 	humanize_number.3 \
 	fmtcheck.3 \
 	nlist.3 \
+	pidfile.3 \
 	setmode.3 \
 	getmode.3 \
 	strmode.3 \

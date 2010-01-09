@@ -53,5 +53,10 @@ LIBBSD_0.2 {
     readpassphrase;
 
     flopen;
+
+    pidfile_open;
+    pidfile_write;
+    pidfile_close;
+    pidfile_remove;
 } LIBBSD_0.1;
 
