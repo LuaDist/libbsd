@@ -60,5 +60,8 @@ LIBBSD_0.2 {
     pidfile_remove;
 
     setproctitle;
+
+    arc4random_buf;
+    arc4random_uniform;
 } LIBBSD_0.1;
 
