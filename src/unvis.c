@@ -235,7 +235,7 @@ strunvis(char *dst, const char *src)
 	char *start = dst;
 	int state = 0;
 
-	while ( (c = *src++) ) {
+	while ((c = *src++)) {
 	again:
 		switch (unvis(dst, c, &state, 0)) {
 		case UNVIS_VALID:
@@ -248,6 +248,7 @@ strunvis(char *dst, const char *src)
 		case UNVIS_NOCHAR:
 			break;
 		default:
+			*dst = '\0';
 			return (-1);
 		}
 	}
@@ -304,8 +305,8 @@ strunvisx(char *dst, const char *src, int flag)
 	char c;
 	char *start = dst;
 	int state = 0;
-    
-	while ( (c = *src++) ) {
+
+	while ((c = *src++)) {
 	again:
 		switch (unvis(dst, c, &state, flag)) {
 		case UNVIS_VALID:

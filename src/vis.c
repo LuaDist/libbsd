@@ -50,10 +50,7 @@
  * vis - visually encode characters
  */
 char *
-vis(dst, c, flag, nextc)
-	char *dst;
-	int c, nextc;
-	int flag;
+vis(char *dst, int c, int flag, int nextc)
 {
 	c = (unsigned char)c;
 
@@ -173,10 +170,7 @@ done:
  *	This is useful for encoding a block of data.
  */
 int
-strvis(dst, src, flag)
-	char *dst;
-	const char *src;
-	int flag;
+strvis(char *dst, const char *src, int flag)
 {
 	char c;
 	char *start;
@@ -231,11 +225,8 @@ strnvis(char *dst, const char *src, size_t siz, int flag)
 	return (dst - start);
 }
 
-strvisx(dst, src, len, flag)
-	char *dst;
-	const char *src;
-	size_t len;
-	int flag;
+int
+strvisx(char *dst, const char *src, size_t len, int flag)
 {
 	int c;
 	char *start;
