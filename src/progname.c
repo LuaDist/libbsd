@@ -33,13 +33,13 @@
 static char *__progname = NULL;
 
 char *
-getprogname ()
+getprogname()
 {
-  return __progname;
+	return __progname;
 }
 
 void
-setprogname (char *new)
+setprogname(char *new)
 {
-  __progname = new;
+	__progname = new;
 }

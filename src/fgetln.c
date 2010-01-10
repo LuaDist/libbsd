@@ -32,7 +32,7 @@
 
 #ifdef __GLIBC__
 char *
-fgetln (FILE *stream, size_t *len)
+fgetln(FILE *stream, size_t *len)
 {
 	static char *line = NULL;
 	static size_t line_len = 0;

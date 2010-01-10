@@ -29,44 +29,46 @@
 #include <stdarg.h>
 
 void
-warnc (int code, const char *format, ...)
+warnc(int code, const char *format, ...)
 {
-  int tmp = errno;
-  va_list ap;
-  va_start (ap, format);
+	int tmp = errno;
+	va_list ap;
 
-  errno = code;
-  warn (format, ap);
-  errno = tmp;
+	va_start(ap, format);
 
-  va_end (ap);
+	errno = code;
+	warn(format, ap);
+	errno = tmp;
+
+	va_end(ap);
 }
 
 void
-vwarnc (int code, const char *format, va_list ap)
+vwarnc(int code, const char *format, va_list ap)
 {
-  int tmp = errno;
+	int tmp = errno;
 
-  errno = code;
-  vwarn (format, ap);
-  errno = tmp;
+	errno = code;
+	vwarn(format, ap);
+	errno = tmp;
 }
 
 void
-errc (int status, int code, const char *format, ...)
+errc(int status, int code, const char *format, ...)
 {
-  va_list ap;
-  va_start (ap, format);
+	va_list ap;
 
-  errno = code;
-  err (status, format, ap);
+	va_start(ap, format);
 
-  va_end (ap);
+	errno = code;
+	err(status, format, ap);
+
+	va_end(ap);
 }
 
 void
-verrc (int status, int code, const char *format, va_list ap)
+verrc(int status, int code, const char *format, va_list ap)
 {
-  errno = code;
-  verr (status, format, ap);
+	errno = code;
+	verr(status, format, ap);
 }
