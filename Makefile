@@ -77,6 +77,7 @@ LIB_MANS := \
 	arc4random_buf.3 \
 	arc4random_stir.3 \
 	arc4random_uniform.3 \
+	dehumanize_number.3 \
 	strtonum.3 \
 	strlcpy.3 \
 	strlcat.3 \
