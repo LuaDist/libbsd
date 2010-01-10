@@ -1,33 +1,20 @@
-.\" $OpenBSD: strlcpy.3,v 1.5 1999/06/06 15:17:32 aaron Exp $
+.\" $OpenBSD: strlcpy.3,v 1.18 2005/08/06 03:24:19 jaredy Exp $
 .\"
-.\" Copyright (c) 1998 Todd C. Miller <Todd.Miller@courtesan.com>
-.\" All rights reserved.
+.\" Copyright (c) 1998, 2000 Todd C. Miller <Todd.Miller@courtesan.com>
 .\"
-.\" Redistribution and use in source and binary forms, with or without
-.\" modification, are permitted provided that the following conditions
-.\" are met:
-.\" 1. Redistributions of source code must retain the above copyright
-.\"    notice, this list of conditions and the following disclaimer.
-.\" 2. Redistributions in binary form must reproduce the above copyright
-.\"    notice, this list of conditions and the following disclaimer in the
-.\"    documentation and/or other materials provided with the distribution.
-.\" 3. The name of the author may not be used to endorse or promote products
-.\"    derived from this software without specific prior written permission.
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
 .\"
-.\" THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES,
-.\" INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
-.\" AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL
-.\" THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-.\" EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-.\" PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-.\" OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-.\" WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-.\" OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-.\" ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 .\"
-.\" $FreeBSD: /repoman/r/ncvs/src/lib/libc/string/strlcpy.3,v 1.13 2004/07/02 23:52:13 ru Exp $
-.\"
-.Dd June 22, 1998
+.Dd $Mdocdate: May 31 2007 $
 .Dt STRLCPY 3
 .Os
 .Sh NAME
@@ -65,7 +52,7 @@ is larger than 0 or, in the case of
 .Fn strlcat ,
 as long as there is at least one byte free in
 .Fa dst ) .
-Note that you should include a byte for the NUL in
+Note that a byte for the NUL should be included in
 .Fa size .
 Also note that
 .Fn strlcpy
@@ -109,8 +96,7 @@ The
 .Fn strlcpy
 and
 .Fn strlcat
-functions return the total length of the string they tried to
-create.
+functions return the total length of the string they tried to create.
 For
 .Fn strlcpy
 that means the length of
@@ -122,10 +108,10 @@ that means the initial length of
 plus
 the length of
 .Fa src .
-While this may seem somewhat confusing it was done to make
+While this may seem somewhat confusing, it was done to make
 truncation detection simple.
 .Pp
-Note however, that if
+Note, however, that if
 .Fn strlcat
 traverses
 .Fa size
@@ -169,8 +155,8 @@ if (strlcat(pname, file, sizeof(pname)) >= sizeof(pname))
 	goto toolong;
 .Ed
 .Pp
-Since we know how many characters we copied the first time, we can
-speed things up a bit by using a copy instead of an append:
+Since it is known how many characters were copied the first time, things
+can be sped up a bit by using a copy instead of an append:
 .Bd -literal -offset indent
 char *dir, *file, pname[MAXPATHLEN];
 size_t n;
