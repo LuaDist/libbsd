@@ -91,6 +91,8 @@ LIB_MANS := \
 	setmode.3 \
 	getmode.3 \
 	strmode.3 \
+	unvis.3 \
+	vis.3 \
 	$(LIB_MANS_GEN)
 LIB_MANS_GEN := $(patsubst %,src/%,$(LIB_MANS_GEN))
 LIB_MANS := $(patsubst %,src/%,$(LIB_MANS))
