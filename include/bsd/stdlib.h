@@ -1,7 +1,7 @@
 /*
  * Copyright © 2005 Aurelien Jarno
  * Copyright © 2006 Robert Millan
- * Copyright © 2008, 2009 Guillem Jover
+ * Copyright © 2008, 2009, 2010 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -48,8 +48,8 @@ void arc4random_addrandom(u_char *dat, int datlen);
 
 int dehumanize_number(const char *str, int64_t *size);
 
-char *getprogname ();
-void setprogname (char *);
+const char *getprogname(void);
+void setprogname(const char *);
 
 int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
 

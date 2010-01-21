@@ -1,5 +1,6 @@
 /*
  * Copyright © 2006 Robert Millan
+ * Copyright © 2010 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,16 +31,16 @@
 
 #include <bsd/stdlib.h>
 
-static char *__progname = NULL;
+static const char *__progname = NULL;
 
-char *
-getprogname()
+const char *
+getprogname(void)
 {
 	return __progname;
 }
 
 void
-setprogname(char *new)
+setprogname(const char *new)
 {
 	__progname = new;
 }
