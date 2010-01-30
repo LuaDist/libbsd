@@ -101,6 +101,7 @@ LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
 
 CC = gcc
+CCLD = $(CC)
 
 # Set default value for compilation
 CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
@@ -151,7 +152,8 @@ $(LIB_SONAME): $(LIB_SHARED)
 	ln -fs $^ $@
 
 $(LIB_SHARED): $(LIB_SHARED_OBJS)
-	gcc -shared \
+	$(CCLD) \
+	  -shared \
 	  -Wl,-soname -Wl,$(LIB_SONAME) \
 	  -Wl,--version-script=Versions \
 	  -o $@ $^
