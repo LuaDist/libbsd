@@ -100,6 +100,7 @@ LIB_MANS := $(patsubst %,src/%,$(LIB_MANS))
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
 
+AR = ar
 CC = gcc
 CCLD = $(CC)
 
@@ -146,7 +147,7 @@ $(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
 	    $< > $@
 
 $(LIB_STATIC): $(LIB_STATIC_OBJS)
-	ar rcs $@ $^
+	$(AR) rcs $@ $^
 
 $(LIB_SHARED_SO): $(LIB_SONAME)
 	ln -fs $^ $@
