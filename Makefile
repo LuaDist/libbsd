@@ -108,6 +108,9 @@ CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
 
 MK_CFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
 
+COMPILE = $(CC) $(MK_CFLAGS) $(CFLAGS)
+LINK = $(CCLD)
+
 prefix		= /usr
 exec_prefix	=
 libdir		= ${exec_prefix}/lib
@@ -123,10 +126,10 @@ libs: $(LIB_STATIC) $(LIB_SHARED_SO) $(LIB_PKGCONFIG)
 man: $(LIB_MANS)
 
 %.lo: %.c
-	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -DPIC -fPIC -c $<
+	$(COMPILE) -o $@ -DPIC -fPIC -c $<
 
 %.o: %.c
-	$(CC) -o $@ $(MK_CFLAGS) $(CFLAGS) -c $<
+	$(COMPILE) -o $@ -c $<
 
 src/md5.3bsd:  src/mdX.3
 	sed -e 's/mdX/md5/g' -e 's/mdY/md4/g' -e 's/MDX/MD5/g' $< > $@
@@ -152,7 +155,7 @@ $(LIB_SONAME): $(LIB_SHARED)
 	ln -fs $^ $@
 
 $(LIB_SHARED): $(LIB_SHARED_OBJS)
-	$(CCLD) \
+	$(LINK) \
 	  -shared \
 	  -Wl,-soname -Wl,$(LIB_SONAME) \
 	  -Wl,--version-script=Versions \
