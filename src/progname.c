@@ -29,6 +29,8 @@
   Rejected in glibc (http://sourceware.org/ml/libc-alpha/2006-03/msg00125.html)
 */
 
+#include <string.h>
+
 #include <bsd/stdlib.h>
 
 static const char *__progname = NULL;
@@ -40,7 +42,13 @@ getprogname(void)
 }
 
 void
-setprogname(const char *new)
+setprogname(const char *progname)
 {
-	__progname = new;
+	const char *last_slash;
+
+	last_slash = strrchr(progname, '/');
+	if (last_slash == NULL)
+		__progname = progname;
+	else
+		__progname = last_slash + 1;
 }
