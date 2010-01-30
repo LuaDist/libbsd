@@ -100,6 +100,8 @@ LIB_MANS := $(patsubst %,src/%,$(LIB_MANS))
 LIB_STATIC_OBJS := $(LIB_SRCS:%.c=%.o)
 LIB_SHARED_OBJS := $(LIB_SRCS:%.c=%.lo)
 
+CC = gcc
+
 # Set default value for compilation
 CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
 
