@@ -177,7 +177,7 @@ install: libs man
 	mkdir -p $(DESTDIR)$(mandir)/man3
 	mkdir -p $(DESTDIR)$(pkgconfigdir)
 	install -m644 $(LIB_STATIC) $(DESTDIR)$(usrlibdir)
-	install -m644 $(LIB_SHARED) $(DESTDIR)$(libdir)
+	install -m755 $(LIB_SHARED) $(DESTDIR)$(libdir)
 	for i in $(LIB_INCLUDES); do \
 	  install -m644 include/$$i $(DESTDIR)$(includedir)/$$i; \
 	done
