@@ -104,13 +104,18 @@ AR = ar
 CC = gcc
 CCLD = $(CC)
 
-# Set default value for compilation
+# Set default values for user variables
+CPPFLAGS ?=
 CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
+LDFLAGS ?=
 
-MK_CFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
+# Internal makefile variables
+MK_CPPFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
+MK_CFLAGS :=
+MK_LDFLAGS :=
 
-COMPILE = $(CC) $(MK_CFLAGS) $(CFLAGS)
-LINK = $(CCLD)
+COMPILE = $(CC) $(MK_CPPFLAGS) $(CPPFLAGS) $(MK_CFLAGS) $(CFLAGS)
+LINK = $(CCLD) $(MK_CFLAGS) $(CFLAGS) $(MK_LDFLAGS) $(LDFLAGS)
 
 prefix		= /usr
 exec_prefix	=
