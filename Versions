@@ -65,3 +65,7 @@ LIBBSD_0.2 {
     arc4random_uniform;
 } LIBBSD_0.1;
 
+LIBBSD_0.3 {
+    reallocf;
+} LIBBSD_0.2;
+

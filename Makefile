@@ -33,6 +33,7 @@ LIB_SRCS := \
 	hash/md5.c \
 	pidfile.c \
 	readpassphrase.c \
+	reallocf.c \
 	setmode.c \
 	setproctitle.c \
 	strmode.c \
@@ -84,6 +85,7 @@ LIB_MANS := \
 	fgetln.3 \
 	flopen.3 \
 	readpassphrase.3 \
+	reallocf.3 \
 	humanize_number.3 \
 	fmtcheck.3 \
 	nlist.3 \

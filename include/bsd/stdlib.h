@@ -53,6 +53,8 @@ void setprogname(const char *);
 
 int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
 
+void *reallocf(void *ptr, size_t size);
+
 long long strtonum(const char *nptr, long long minval, long long maxval,
                    const char **errstr);
 __END_DECLS
