@@ -26,6 +26,7 @@ LIB_SRCS := \
 	err.c \
 	fgetln.c \
 	flopen.c \
+	getpeereid.c \
 	heapsort.c \
 	humanize_number.c \
 	dehumanize_number.c \
@@ -84,6 +85,7 @@ LIB_MANS := \
 	strlcat.3 \
 	fgetln.3 \
 	flopen.3 \
+	getpeereid.3 \
 	readpassphrase.3 \
 	reallocf.3 \
 	humanize_number.3 \

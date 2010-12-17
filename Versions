@@ -67,5 +67,6 @@ LIBBSD_0.2 {
 
 LIBBSD_0.3 {
     reallocf;
+    getpeereid;
 } LIBBSD_0.2;
 

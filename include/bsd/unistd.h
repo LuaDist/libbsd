@@ -39,6 +39,8 @@ mode_t getmode(const void *set, mode_t mode);
 void *setmode(const char *mode_str);
 
 void setproctitle(const char *fmt, ...);
+
+int getpeereid(int s, uid_t *euid, gid_t *egid);
 __END_DECLS
 
 #endif
