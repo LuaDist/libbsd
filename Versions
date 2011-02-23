@@ -3,8 +3,15 @@ LIBBSD_0.0 {
     arc4random;
     arc4random_stir;
     arc4random_addrandom;
-    bsd_getopt; optreset;
-    errc; warnc; verrc; vwarnc;
+
+    bsd_getopt;
+    optreset;
+
+    errc;
+    warnc;
+    verrc;
+    vwarnc;
+
     fgetln;
     fmtcheck;
     heapsort;
@@ -12,15 +19,22 @@ LIBBSD_0.0 {
 
     inet_net_pton; /* XXX: Already provided by glibc, remove. */
 
-    getprogname; setprogname;
+    getprogname;
+    setprogname;
+
     strlcpy;
     strlcat;
 
     setmode;
     getmode;
 
-    vis; strvis; strvisx;
-    unvis; strunvis; strunvisx;
+    vis;
+    strvis;
+    strvisx;
+    unvis;
+    strunvis;
+    strunvisx;
+
     MD5Init;
     MD5Update;
     MD5Pad;
