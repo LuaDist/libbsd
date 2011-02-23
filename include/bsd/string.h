@@ -36,8 +36,10 @@
 #include <string.h>
 #endif
 
+#ifndef LIBBSD_CLEAN_INCLUDES
 /* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
 #include <bsd/stdio.h>
+#endif
 
 __BEGIN_DECLS
 size_t strlcpy(char *dst, const char *src, size_t siz);

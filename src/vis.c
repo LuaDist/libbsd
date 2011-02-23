@@ -32,6 +32,7 @@
 #include <limits.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdio.h>
 #include <vis.h>
 
 #define	isoctal(c)	(((u_char)(c)) >= '0' && ((u_char)(c)) <= '7')

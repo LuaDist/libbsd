@@ -47,8 +47,10 @@
 #endif
 
 /* FIXME: Temporary inclusions to avoid API breakage, will be removed soon. */
+#ifndef LIBBSD_CLEAN_INCLUDES
 #include <bsd/stdio.h>
 #include <bsd/unistd.h>
+#endif
 
 __BEGIN_DECLS
 u_int32_t arc4random();
