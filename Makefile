@@ -7,6 +7,7 @@ LIB_VERSION_MICRO := 0
 LIB_VERSION := $(LIB_VERSION_MAJOR).$(LIB_VERSION_MINOR).$(LIB_VERSION_MICRO)
 
 LIB_PKGCONFIG := $(LIB_NAME).pc
+LIB_PKGCONFIG_TRANS := $(LIB_NAME)-transparent.pc
 LIB_STATIC := $(LIB_NAME).a
 LIB_SHARED_SO := $(LIB_NAME).so
 LIB_SONAME := $(LIB_SHARED_SO).$(LIB_VERSION_MAJOR)
@@ -121,7 +122,7 @@ CFLAGS ?= -g -Wall -Wextra -Wno-unused-variable
 LDFLAGS ?=
 
 # Internal makefile variables
-MK_CPPFLAGS := -Iinclude/ -include bsd/bsd.h -D_GNU_SOURCE -D__REENTRANT
+MK_CPPFLAGS := -Iinclude/bsd/ -Iinclude/ -DLIBBSD_TRANSPARENT -D_GNU_SOURCE -D__REENTRANT
 MK_CFLAGS :=
 MK_LDFLAGS :=
 
@@ -137,7 +138,7 @@ pkgconfigdir	= ${usrlibdir}/pkgconfig
 mandir		= ${prefix}/share/man
 
 .PHONY: libs
-libs: $(LIB_STATIC) $(LIB_SHARED_SO) $(LIB_PKGCONFIG)
+libs: $(LIB_STATIC) $(LIB_SHARED_SO) $(LIB_PKGCONFIG) $(LIB_PKGCONFIG_TRANS)
 
 .PHONY: man
 man: $(LIB_MANS)
@@ -207,6 +208,7 @@ install: libs man
 	done
 	install -m644 $(LIB_MANS) $(DESTDIR)$(mandir)/man3
 	install -m644 $(LIB_PKGCONFIG) $(DESTDIR)$(pkgconfigdir)
+	install -m644 $(LIB_PKGCONFIG_TRANS) $(DESTDIR)$(pkgconfigdir)
 ifeq ($(libdir),$(usrlibdir))
 	# If both dirs are the same, do a relative symlink.
 	ln -sf $(LIB_SHARED) $(DESTDIR)$(usrlibdir)/$(LIB_SHARED_SO)
@@ -219,6 +221,7 @@ endif
 .PHONY: clean
 clean:
 	rm -f $(LIB_PKGCONFIG)
+	rm -f $(LIB_PKGCONFIG_TRANS)
 	rm -f $(LIB_SRCS_GEN) $(LIB_MANS_GEN)
 	rm -f $(LIB_STATIC_OBJS)
 	rm -f $(LIB_STATIC)

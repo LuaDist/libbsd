@@ -29,7 +29,12 @@
 #define LIBBSD_GETOPT_H
 
 #include <sys/cdefs.h>
+
+#ifdef LIBBSD_TRANSPARENT
+#include_next <getopt.h>
+#else
 #include <getopt.h>
+#endif
 
 __BEGIN_DECLS
 extern int optreset;

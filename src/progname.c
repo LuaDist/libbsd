@@ -31,8 +31,7 @@
 
 #include <errno.h>
 #include <string.h>
-
-#include <bsd/stdlib.h>
+#include <stdlib.h>
 
 static const char *__progname = NULL;
 

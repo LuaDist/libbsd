@@ -30,6 +30,12 @@
 #include <sys/cdefs.h>
 #include <sys/types.h>
 
+#ifdef LIBBSD_TRANSPARENT
+#include_next <string.h>
+#else
+#include <string.h>
+#endif
+
 /* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
 #include <bsd/stdio.h>
 

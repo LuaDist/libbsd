@@ -30,6 +30,12 @@
 #include <sys/cdefs.h>
 #include <sys/stat.h>
 
+#ifdef LIBBSD_TRANSPARENT
+#include_next <unistd.h>
+#else
+#include <unistd.h>
+#endif
+
 #ifndef S_ISTXT
 #define S_ISTXT S_ISVTX
 #endif

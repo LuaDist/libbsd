@@ -27,7 +27,11 @@
 #ifndef LIBBSD_CDEFS_H
 #define LIBBSD_CDEFS_H
 
+#ifdef LIBBSD_TRANSPARENT
+#include_next <sys/cdefs.h>
+#else
 #include <sys/cdefs.h>
+#endif
 
 #ifndef __dead2
 # define __dead2

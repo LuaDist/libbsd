@@ -29,8 +29,14 @@
 #define LIBBSD_ERR_H
 
 #include <sys/cdefs.h>
-#include <err.h>
+
 #include <stdarg.h>
+
+#ifdef LIBBSD_TRANSPARENT
+#include_next <err.h>
+#else
+#include <err.h>
+#endif
 
 __BEGIN_DECLS
 extern void warnc (int code, const char *format, ...);

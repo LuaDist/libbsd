@@ -24,7 +24,7 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <bsd/err.h>
+#include <err.h>
 #include <errno.h>
 #include <stdarg.h>
 

@@ -32,10 +32,19 @@
 #include <sys/cdefs.h>
 #include <sys/stat.h>
 #include <stdint.h>
+
+#ifdef LIBBSD_TRANSPARENT
+#include_next <stdlib.h>
+#else
 #include <stdlib.h>
+#endif
 
 /* For compatibility with NetBSD, which defines humanize_number here. */
+#ifdef LIBBSD_TRANSPARENT
 #include <libutil.h>
+#else
+#include <bsd/libutil.h>
+#endif
 
 /* FIXME: Temporary inclusions to avoid API breakage, will be removed soon. */
 #include <bsd/stdio.h>

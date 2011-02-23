@@ -29,7 +29,12 @@
 
 #include <sys/cdefs.h>
 #include <sys/types.h>
+
+#ifdef LIBBSD_TRANSPARENT
+#include_next <stdio.h>
+#else
 #include <stdio.h>
+#endif
 
 __BEGIN_DECLS
 const char *fmtcheck(const char *, const char *);
