@@ -42,6 +42,8 @@
 #include <bsd/md5.h>
 
 /* FIXME: Will be removed in the future. */
+#ifndef LIBBSD_CLEAN_INCLUDES
 #include <time.h>
+#endif
 
 #endif
