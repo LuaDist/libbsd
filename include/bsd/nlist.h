@@ -1,5 +1,5 @@
 /*
- * Copyright © 2011 Guillem Jover
+ * Copyright © 2009 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -24,11 +24,15 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LIBBSD_LIBUTIL_H
-#define LIBBSD_LIBUTIL_H
+#ifndef LIBBSD_NLIST_H
+#define LIBBSD_NLIST_H
 
-#warning "This header is deprecated, use the one in bsd/libutil.h instead."
+#include <sys/cdefs.h>
+#include <a.out.h>
 
-#include <bsd/libutil.h>
+__BEGIN_DECLS
+extern int nlist(const char *filename, struct nlist *list);
+__END_DECLS
 
 #endif
+

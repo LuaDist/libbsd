@@ -1,5 +1,5 @@
 /*
- * Copyright © 2009 Guillem Jover
+ * Copyright © 2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,12 +27,8 @@
 #ifndef LIBBSD_NLIST_H
 #define LIBBSD_NLIST_H
 
-#include <sys/cdefs.h>
-#include <a.out.h>
+#warning "This header is deprecated, use the one in bsd/nlist.h instead."
 
-__BEGIN_DECLS
-extern int nlist(const char *filename, struct nlist *list);
-__END_DECLS
+#include <bsd/nlist.h>
 
 #endif
-
