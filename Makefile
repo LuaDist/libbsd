@@ -154,7 +154,7 @@ src/md5.3bsd:  src/mdX.3
 src/hash/md5hl.c: src/hash/helper.c
 	sed -e 's:hashinc:bsd/md5.h:g' -e 's:HASH:MD5:g' $< > $@
 
-$(LIB_PKGCONFIG): $(LIB_PKGCONFIG).in
+%.pc: %.pc.in
 	sed -e 's:@VERSION@:$(VERSION):' \
 	    -e 's:@prefix@:$(value prefix):' \
 	    -e 's:@exec_prefix@:$(value exec_prefix):' \
