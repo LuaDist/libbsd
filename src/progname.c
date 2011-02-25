@@ -1,6 +1,6 @@
 /*
  * Copyright © 2006 Robert Millan
- * Copyright © 2010 Guillem Jover
+ * Copyright © 2010-2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,6 +29,7 @@
   Rejected in glibc (http://sourceware.org/ml/libc-alpha/2006-03/msg00125.html)
 */
 
+#include <errno.h>
 #include <string.h>
 
 #include <bsd/stdlib.h>
@@ -38,6 +39,11 @@ static const char *__progname = NULL;
 const char *
 getprogname(void)
 {
+#ifdef __GLIBC__
+	if (__progname == NULL)
+		__progname = program_invocation_short_name;
+#endif
+
 	return __progname;
 }
 
