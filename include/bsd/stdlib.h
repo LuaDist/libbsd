@@ -54,6 +54,10 @@ void setprogname(const char *);
 int heapsort (void *, size_t, size_t, int (*)(const void *, const void *));
 int mergesort(void *base, size_t nmemb, size_t size,
               int (*cmp)(const void *, const void *));
+int radixsort(const unsigned char **base, int nmemb,
+              const unsigned char *table, unsigned endbyte);
+int sradixsort(const unsigned char **base, int nmemb,
+               const unsigned char *table, unsigned endbyte);
 
 void *reallocf(void *ptr, size_t size);
 

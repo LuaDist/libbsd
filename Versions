@@ -70,5 +70,7 @@ LIBBSD_0.3 {
     getpeereid;
 
     mergesort;
+    radixsort;
+    sradixsort;
 } LIBBSD_0.2;
 

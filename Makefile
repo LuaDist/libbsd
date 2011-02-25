@@ -44,6 +44,7 @@ LIB_SRCS := \
 	fmtcheck.c \
 	nlist.c \
 	progname.c \
+	radixsort.c \
 	vis.c unvis.c \
 	$(LIB_SRCS_GEN)
 LIB_SRCS_GEN := $(patsubst %,src/%,$(LIB_SRCS_GEN))
@@ -93,6 +94,8 @@ LIB_MANS := \
 	humanize_number.3 \
 	fmtcheck.3 \
 	mergesort.3 \
+	radixsort.3 \
+	sradixsort.3 \
 	nlist.3 \
 	pidfile.3 \
 	setmode.3 \
