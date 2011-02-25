@@ -89,8 +89,10 @@ LIB_MANS := \
 	getpeereid.3 \
 	readpassphrase.3 \
 	reallocf.3 \
+	heapsort.3 \
 	humanize_number.3 \
 	fmtcheck.3 \
+	mergesort.3 \
 	nlist.3 \
 	pidfile.3 \
 	setmode.3 \
