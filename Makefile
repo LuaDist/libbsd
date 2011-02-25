@@ -28,6 +28,7 @@ LIB_SRCS := \
 	flopen.c \
 	getpeereid.c \
 	heapsort.c \
+	merge.c \
 	humanize_number.c \
 	dehumanize_number.c \
 	inet_net_pton.c \

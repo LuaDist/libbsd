@@ -68,5 +68,7 @@ LIBBSD_0.2 {
 LIBBSD_0.3 {
     reallocf;
     getpeereid;
+
+    mergesort;
 } LIBBSD_0.2;
 
