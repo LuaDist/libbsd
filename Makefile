@@ -27,6 +27,7 @@ LIB_SRCS := \
 	err.c \
 	fgetln.c \
 	flopen.c \
+	fpurge.c \
 	getpeereid.c \
 	heapsort.c \
 	merge.c \

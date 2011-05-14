@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004, 2005, 2009, 2011 Guillem Jover
+ * Copyright © 2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -24,24 +24,45 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LIBBSD_STDIO_H
-#define LIBBSD_STDIO_H
+#define _GNU_SOURCE 1
 
-#include <sys/cdefs.h>
-#include <sys/types.h>
-
-#ifdef LIBBSD_TRANSPARENT
-#include_next <stdio.h>
-#else
+#include <errno.h>
 #include <stdio.h>
+#include <stdio_ext.h>
+
+#ifdef __GLIBC__
+int
+fpurge(FILE *fp)
+{
+	if (fp == NULL || fileno(fp) < 0) {
+		errno = EBADF;
+		return EOF;
+	}
+
+	__fpurge(fp);
+
+	return 0;
+}
+#else
+#error "Function fpurge() needs to be ported."
 #endif
 
-__BEGIN_DECLS
-const char *fmtcheck(const char *, const char *);
+#ifdef TEST
+int
+main()
+{
+	static FILE fp_bad;
+	FILE *fp;
 
-char *fgetln(FILE *fp, size_t *lenp);
+	if (fpurge(&fp_bad) == 0)
+		return 1;
 
-int fpurge(FILE *fp);
-__END_DECLS
+	fp = fopen("/dev/zero", "r");
+	if (fpurge(fp) < 0)
+		return 1;
 
+	fclose(fp);
+
+	return 0;
+}
 #endif
