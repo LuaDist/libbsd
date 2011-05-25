@@ -30,7 +30,7 @@
 #include <sys/cdefs.h>
 #include <sys/types.h>
 
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include_next <stdio.h>
 #else
 #include <stdio.h>

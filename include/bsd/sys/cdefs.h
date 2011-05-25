@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004, 2005, 2006, 2009 Guillem Jover
+ * Copyright © 2004-2006, 2009-2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,7 +27,7 @@
 #ifndef LIBBSD_CDEFS_H
 #define LIBBSD_CDEFS_H
 
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include_next <sys/cdefs.h>
 #else
 #include <sys/cdefs.h>

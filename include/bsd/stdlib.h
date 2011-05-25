@@ -33,14 +33,14 @@
 #include <sys/stat.h>
 #include <stdint.h>
 
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include_next <stdlib.h>
 #else
 #include <stdlib.h>
 #endif
 
 /* For compatibility with NetBSD, which defines humanize_number here. */
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include <libutil.h>
 #else
 #include <bsd/libutil.h>

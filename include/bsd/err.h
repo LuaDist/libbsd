@@ -1,6 +1,6 @@
 /*
  * Copyright © 2006 Robert Millan
- * Copyright © 2009 Guillem Jover
+ * Copyright © 2009, 2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -32,7 +32,7 @@
 
 #include <stdarg.h>
 
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include_next <err.h>
 #else
 #include <err.h>

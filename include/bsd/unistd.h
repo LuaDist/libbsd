@@ -1,5 +1,5 @@
 /*
- * Copyright © 2008, 2009 Guillem Jover
+ * Copyright © 2008-2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -30,7 +30,7 @@
 #include <sys/cdefs.h>
 #include <sys/stat.h>
 
-#ifdef LIBBSD_TRANSPARENT
+#ifdef LIBBSD_OVERLAY
 #include_next <unistd.h>
 #else
 #include <unistd.h>
