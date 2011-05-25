@@ -36,5 +36,9 @@ bsd_getopt(int argc, char **argv, char *shortopts)
 		optind = 0;
 	}
 
-	return getopt(argc, argv, shortopts);
+	/*
+	 * Make sure we are using the system getopt() and not a possible
+	 * overlay macro.
+	 */
+	return (getopt)(argc, argv, shortopts);
 }

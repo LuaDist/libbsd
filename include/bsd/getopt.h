@@ -39,6 +39,11 @@
 __BEGIN_DECLS
 extern int optreset;
 
+#ifdef LIBBSD_OVERLAY
+#undef getopt
+#define getopt(argc, argv, optstr) bsd_getopt(argc, argv, optstr)
+#endif
+
 int bsd_getopt (int, char **, char *);
 __END_DECLS
 
