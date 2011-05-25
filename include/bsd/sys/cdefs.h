@@ -43,6 +43,12 @@
 #define _SYS_CDEFS_H
 #endif
 
+#ifdef __GNUC__
+#define LIBBSD_GCC_VERSION (__GNUC__ << 8 | __GNUC_MINOR__)
+#else
+#define LIBBSD_GCC_VERSION 0
+#endif
+
 #ifndef __dead2
 # define __dead2
 #endif
@@ -56,7 +62,7 @@
  * Disable for now. */
 #if 0
 #ifndef __unused
-# ifdef __GNUC__
+# if LIBBSD_GCC_VERSION >= 0x0300
 #  define __unused __attribute__((unused))
 # else
 #  define __unused
@@ -65,7 +71,7 @@
 #endif
 
 #ifndef __printflike
-# ifdef __GNUC__
+# if LIBBSD_GCC_VERSION >= 0x0300
 #  define __printflike(x, y) __attribute((format(printf, (x), (y))))
 # else
 #  define __printflike(x, y)
