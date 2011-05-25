@@ -65,6 +65,22 @@
 # endif
 #endif
 
+#ifndef __packed
+# if LIBBSD_GCC_VERSION >= 0x0207
+#  define __packed __attribute__((__packed__))
+# else
+#  define __packed
+# endif
+#endif
+
+#ifndef __aligned
+# if LIBBSD_GCC_VERSION >= 0x0207
+#  define __aligned(x) __attribute__((__aligned__(x)))
+# else
+#  define __aligned(x)
+# endif
+#endif
+
 /* Linux headers define a struct with a member names __unused.
  * Debian bugs: #522773 (linux), #522774 (libc).
  * Disable for now. */
@@ -83,6 +99,14 @@
 #  define __printflike(x, y) __attribute((format(printf, (x), (y))))
 # else
 #  define __printflike(x, y)
+# endif
+#endif
+
+#ifndef __nonnull
+# if LIBBSD_GCC_VERSION >= 0x0302
+#  define __nonnull(x) __attribute__((__nonnull__(x)))
+# else
+#  define __nonnull(x)
 # endif
 #endif
 
