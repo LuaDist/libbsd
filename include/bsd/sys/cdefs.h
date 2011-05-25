@@ -33,6 +33,16 @@
 #include <sys/cdefs.h>
 #endif
 
+/*
+ * Some kFreeBSD headers expect those macros to be set for sanity checks.
+ */
+#ifndef _SYS_CDEFS_H_
+#define _SYS_CDEFS_H_
+#endif
+#ifndef _SYS_CDEFS_H
+#define _SYS_CDEFS_H
+#endif
+
 #ifndef __dead2
 # define __dead2
 #endif
