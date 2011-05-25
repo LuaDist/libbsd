@@ -50,11 +50,19 @@
 #endif
 
 #ifndef __dead2
-# define __dead2
+# if LIBBSD_GCC_VERSION >= 0x0207
+#  define __dead2 __attribute__((__noreturn__))
+# else
+#  define __dead2
+# endif
 #endif
 
 #ifndef __pure2
-# define __pure2
+# if LIBBSD_GCC_VERSION >= 0x0207
+#  define __pure2 __attribute__((__const__))
+# else
+#  define __pure2
+# endif
 #endif
 
 /* Linux headers define a struct with a member names __unused.
