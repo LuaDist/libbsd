@@ -24,8 +24,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LIBBSD_CDEFS_H
-#define LIBBSD_CDEFS_H
+#ifndef LIBBSD_SYS_CDEFS_H
+#define LIBBSD_SYS_CDEFS_H
 
 #ifdef LIBBSD_OVERLAY
 #include_next <sys/cdefs.h>
