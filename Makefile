@@ -58,6 +58,7 @@ LIB_INCLUDES := \
 	bsd/ip_icmp.h \
 	bsd/sys/cdefs.h \
 	bsd/sys/bitstring.h \
+	bsd/sys/endian.h \
 	bsd/sys/queue.h \
 	bsd/sys/tree.h \
 	bsd/netinet/ip_icmp.h \
