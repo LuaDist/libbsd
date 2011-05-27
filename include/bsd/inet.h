@@ -27,7 +27,7 @@
 #ifndef LIBBSD_INET_H
 #define LIBBSD_INET_H
 
-#warning "This header is deprecated, use the one in arpa/inet.h instead."
+#warning "Deprecated header, use <arpa/inet.h> instead."
 
 #include <arpa/inet.h>
 

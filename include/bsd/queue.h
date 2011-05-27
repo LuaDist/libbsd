@@ -27,7 +27,7 @@
 #ifndef LIBBSD_BSD_QUEUE_H
 #define LIBBSD_BSD_QUEUE_H
 
-#warning "This header is deprecated, use the one in bsd/sys/queue.h instead."
+#warning "Deprecated header, use <bsd/sys/queue.h> or libbsd-overlay.pc instead."
 
 #include <bsd/sys/queue.h>
 

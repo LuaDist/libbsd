@@ -27,7 +27,7 @@
 #ifndef LIBBSD_NLIST_H
 #define LIBBSD_NLIST_H
 
-#warning "This header is deprecated, use the one in bsd/nlist.h instead."
+#warning "Deprecated header, use <bsd/nlist.h> or libbsd-overlay.pc instead."
 
 #include <bsd/nlist.h>
 

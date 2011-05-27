@@ -27,7 +27,7 @@
 #ifndef LIBBSD_RANDOM_H
 #define LIBBSD_RANDOM_H
 
-#warning "This header is deprecated, use the one in bsd/stdlib.h instead."
+#warning "Deprecated header, use <bsd/stdlib.h> instead."
 
 #include <bsd/stdlib.h>
 

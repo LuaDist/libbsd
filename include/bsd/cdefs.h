@@ -27,7 +27,7 @@
 #ifndef LIBBSD_BSD_CDEFS_H
 #define LIBBSD_BSD_CDEFS_H
 
-#warning "This header is deprecated, use the one in bsd/sys/cdefs.h instead."
+#warning "Deprecated header, use <bsd/sys/cdefs.h> or libbsd-overlay.pc instead."
 
 #include <bsd/sys/cdefs.h>
 
