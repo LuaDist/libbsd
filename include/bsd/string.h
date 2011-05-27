@@ -36,7 +36,7 @@
 #include <string.h>
 #endif
 
-#ifndef LIBBSD_CLEAN_INCLUDES
+#ifndef LIBBSD_DISABLE_DEPRECATED
 /* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
 #include <bsd/stdio.h>
 #endif
