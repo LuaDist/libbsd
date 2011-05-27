@@ -27,7 +27,11 @@
 #ifndef LIBBSD_LIBUTIL_H
 #define LIBBSD_LIBUTIL_H
 
+#ifdef LIBBSD_DISABLE_DEPRECATED
+#error "Deprecated header, use <bsd/libutil.h> or libbsd-overlay.pc instead."
+#else
 #warning "Deprecated header, use <bsd/libutil.h> or libbsd-overlay.pc instead."
+#endif
 
 #include <bsd/libutil.h>
 

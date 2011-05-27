@@ -27,7 +27,11 @@
 #ifndef LIBBSD_BSD_IP_ICMP_H
 #define LIBBSD_BSD_IP_ICMP_H
 
+#ifdef LIBBSD_DISABLE_DEPRECATED
+#error "Deprecated header, use <bsd/netinet/ip_icmp.h> or libbsd-overlay.pc instead."
+#else
 #warning "Deprecated header, use <bsd/netinet/ip_icmp.h> or libbsd-overlay.pc instead."
+#endif
 
 #include <bsd/netinet/ip_icmp.h>
 

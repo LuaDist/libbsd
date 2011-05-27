@@ -27,7 +27,11 @@
 #ifndef LIBBSD_VIS_H
 #define LIBBSD_VIS_H
 
+#ifdef LIBBSD_DISABLE_DEPRECATED
+#error "Deprecated header, use <bsd/vis.h> or libbsd-overlay.pc instead."
+#else
 #warning "Deprecated header, use <bsd/vis.h> or libbsd-overlay.pc instead."
+#endif
 
 #include <bsd/vis.h>
 
