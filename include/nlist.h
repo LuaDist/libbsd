@@ -24,8 +24,8 @@
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef LIBBSD_NLIST_H
-#define LIBBSD_NLIST_H
+#ifndef LIBBSD_DEPRECATED_NLIST_H
+#define LIBBSD_DEPRECATED_NLIST_H
 
 #ifdef LIBBSD_DISABLE_DEPRECATED
 #error "Deprecated header, use <bsd/nlist.h> or libbsd-overlay.pc instead."
