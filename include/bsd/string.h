@@ -38,7 +38,11 @@
 
 #ifndef LIBBSD_DISABLE_DEPRECATED
 /* FIXME: Temporary inclusion to avoid API breakage, will be removed soon. */
+#ifdef LIBBSD_OVERLAY
+#include <stdio.h>
+#else
 #include <bsd/stdio.h>
+#endif
 #endif
 
 __BEGIN_DECLS

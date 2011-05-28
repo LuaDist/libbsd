@@ -33,7 +33,11 @@
 #warning "Deprecated header, use <bsd/sys/queue.h> or libbsd-overlay.pc instead."
 #endif
 
+#ifdef LIBBSD_OVERLAY
+#include <sys/queue.h>
+#else
 #include <bsd/sys/queue.h>
+#endif
 
 #endif
 

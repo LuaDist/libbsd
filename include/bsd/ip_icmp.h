@@ -33,7 +33,11 @@
 #warning "Deprecated header, use <bsd/netinet/ip_icmp.h> or libbsd-overlay.pc instead."
 #endif
 
+#ifdef LIBBSD_OVERLAY
+#include <netinet/ip_icmp.h>
+#else
 #include <bsd/netinet/ip_icmp.h>
+#endif
 
 #endif
 

@@ -33,7 +33,11 @@
 #warning "Deprecated header, use <bsd/stdlib.h> instead."
 #endif
 
+#ifdef LIBBSD_OVERLAY
+#include <stdlib.h>
+#else
 #include <bsd/stdlib.h>
+#endif
 
 #endif
 

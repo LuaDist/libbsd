@@ -33,7 +33,11 @@
 #warning "Deprecated header, use <bsd/sys/cdefs.h> or libbsd-overlay.pc instead."
 #endif
 
+#ifdef LIBBSD_OVERLAY
+#include <sys/cdefs.h>
+#else
 #include <bsd/sys/cdefs.h>
+#endif
 
 #endif
 
