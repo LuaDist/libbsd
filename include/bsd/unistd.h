@@ -1,4 +1,5 @@
 /*
+ * Copyright © 2006 Robert Millan
  * Copyright © 2008-2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
@@ -41,6 +42,15 @@
 #endif
 
 __BEGIN_DECLS
+extern int optreset;
+
+#ifdef LIBBSD_OVERLAY
+#undef getopt
+#define getopt(argc, argv, optstr) bsd_getopt(argc, argv, optstr)
+#endif
+
+int bsd_getopt(int, char **, char *);
+
 mode_t getmode(const void *set, mode_t mode);
 void *setmode(const char *mode_str);
 

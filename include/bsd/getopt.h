@@ -1,6 +1,5 @@
 /*
- * Copyright © 2006 Robert Millan
- * Copyright © 2009, 2011 Guillem Jover
+ * Copyright © 2011 Guillem Jover
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -28,23 +27,13 @@
 #ifndef LIBBSD_GETOPT_H
 #define LIBBSD_GETOPT_H
 
-#include <sys/cdefs.h>
-
 #ifdef LIBBSD_OVERLAY
 #include_next <getopt.h>
+#include <unistd.h>
 #else
+#warning "Deprecated header, use <bsd/unistd.h> or <unistd.h> with libbsd-overlay.pc instead."
 #include <getopt.h>
+#include <bsd/unistd.h>
 #endif
-
-__BEGIN_DECLS
-extern int optreset;
-
-#ifdef LIBBSD_OVERLAY
-#undef getopt
-#define getopt(argc, argv, optstr) bsd_getopt(argc, argv, optstr)
-#endif
-
-int bsd_getopt (int, char **, char *);
-__END_DECLS
 
 #endif
