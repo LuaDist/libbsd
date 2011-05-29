@@ -235,4 +235,3 @@ clean:
 	rm -f $(LIB_STATIC)
 	rm -f $(LIB_SHARED_OBJS)
 	rm -f $(LIB_SHARED) $(LIB_SONAME) $(LIB_SHARED_SO)
-

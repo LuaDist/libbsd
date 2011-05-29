@@ -51,4 +51,3 @@ fgetln(FILE *stream, size_t *len)
 #else
 #error "Function fgetln() needs to be ported."
 #endif
-

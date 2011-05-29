@@ -35,4 +35,3 @@ extern int nlist(const char *filename, struct nlist *list);
 __END_DECLS
 
 #endif
-

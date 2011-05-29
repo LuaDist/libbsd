@@ -30,4 +30,3 @@ setproctitle(const char *fmt, ...)
 	/* Stub so that we can implement it later on and programs will
 	 * automatically benefit from it, w/o needing to recompile. */
 }
-
