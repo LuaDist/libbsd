@@ -1,0 +1,14 @@
+--- This file is part of LuaDist project
+
+name = "libbsd"
+version = "0.3.0"
+
+desc = "BSD functions common only on BSD systems, for portability to non-BSD systems."
+author = "many (see COPYING)"
+license = "mostly New BSD and MIT style"
+url = "http://libbsd.freedesktop.org/wiki/"
+maintainer = "David Manura"
+
+depends = {
+	"lua ~> 5.1"
+}
