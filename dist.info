@@ -1,0 +1,88 @@
+type = "x86_64"
+arch = "Ubuntu"
+author = "many (see COPYING)"
+depends = {
+[[lua ~> 5.1]],
+}
+
+desc = "BSD functions common only on BSD systems, for portability to non-BSD systems."
+version = "0.3.0"
+maintainer = "David Manura"
+files = {
+Runtime = {
+[[lib/libbsd.so]],
+}
+,
+Documentation = {
+[[share/libbsd/doc/man/arc4random.3]],
+[[share/libbsd/doc/man/arc4random_addrandom.3]],
+[[share/libbsd/doc/man/arc4random_buf.3]],
+[[share/libbsd/doc/man/dehumanize_number.3]],
+[[share/libbsd/doc/man/arc4random_stir.3]],
+[[share/libbsd/doc/man/arc4random_uniform.3]],
+[[share/libbsd/doc/man/fgetln.3]],
+[[share/libbsd/doc/man/flopen.3]],
+[[share/libbsd/doc/man/fmtcheck.3]],
+[[share/libbsd/doc/man/getmode.3]],
+[[share/libbsd/doc/man/getpeereid.3]],
+[[share/libbsd/doc/man/heapsort.3]],
+[[share/libbsd/doc/man/humanize_number.3]],
+[[share/libbsd/doc/man/mergesort.3]],
+[[share/libbsd/doc/man/nlist.3]],
+[[share/libbsd/doc/man/pidfile.3]],
+[[share/libbsd/doc/man/readpassphrase.3]],
+[[share/libbsd/doc/man/reallocf.3]],
+[[share/libbsd/doc/man/strlcpy.3]],
+[[share/libbsd/doc/man/strlcat.3]],
+[[share/libbsd/doc/man/strtonum.3]],
+[[share/libbsd/doc/man/radixsort.3]],
+[[share/libbsd/doc/man/setmode.3]],
+[[share/libbsd/doc/man/sradixsort.3]],
+[[share/libbsd/doc/man/strmode.3]],
+[[share/libbsd/doc/man/unvis.3]],
+[[share/libbsd/doc/man/vis.3]],
+[[share/libbsd/doc/man/md5.3bsd]],
+}
+,
+Header = {
+[[include/libutil.h]],
+[[include/nlist.h]],
+[[include/vis.h]],
+[[include/bsd/bsd.h]],
+[[include/bsd/cdefs.h]],
+[[include/bsd/err.h]],
+[[include/bsd/getopt.h]],
+[[include/bsd/inet.h]],
+[[include/bsd/ip_icmp.h]],
+[[include/bsd/libutil.h]],
+[[include/bsd/md5.h]],
+[[include/bsd/nlist.h]],
+[[include/bsd/queue.h]],
+[[include/bsd/random.h]],
+[[include/bsd/readpassphrase.h]],
+[[include/bsd/stdio.h]],
+[[include/bsd/stdlib.h]],
+[[include/bsd/string.h]],
+[[include/bsd/unistd.h]],
+[[include/bsd/vis.h]],
+[[include/bsd/netinet/ip_icmp.h]],
+[[include/bsd/sys/bitstring.h]],
+[[include/bsd/sys/cdefs.h]],
+[[include/bsd/sys/endian.h]],
+[[include/bsd/sys/poll.h]],
+[[include/bsd/sys/queue.h]],
+[[include/bsd/sys/tree.h]],
+}
+,
+Data = {
+[[share/libbsd/COPYING]],
+[[share/libbsd/README]],
+[[share/libbsd/TODO]],
+[[share/libbsd/Versions]],
+}
+,
+}
+
+license = "mostly New BSD and MIT style"
+name = "libbsd"
+url = "http://libbsd.freedesktop.org/wiki/"
