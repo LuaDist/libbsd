@@ -124,11 +124,11 @@ arc4_stir(void)
 	/*
 	 * Throw away the first N bytes of output, as suggested in the
 	 * paper "Weaknesses in the Key Scheduling Algorithm of RC4"
-	 * by Fluher, Mantin, and Shamir.  N=1024 is based on
-	 * suggestions in the paper "(Not So) Random Shuffles of RC4"
-	 * by Ilya Mironov.
+	 * by Fluher, Mantin, and Shamir.This follows the recommendations 
+	 * outlined in Network Operations Division Cryptographic 
+	 * Requirements published on wikileaks on March 2017. 
 	 */
-	for (n = 0; n < 1024; n++)
+	for (n = 0; n < 3072; n++)
 		(void) arc4_getbyte();
 	arc4_count = 1600000;
 }
